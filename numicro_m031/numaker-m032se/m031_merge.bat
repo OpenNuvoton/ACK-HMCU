@@ -1,13 +1,14 @@
 @echo off
 SETLOCAL
 
+CALL :MERGEHEX DashReplenishment
+CALL :MERGEHEX HelloWorld
+CALL :MERGEHEX Microwave
 CALL :MERGEHEX SmartLight
 
 pause
 
 EXIT /B %ERRORLEVEL%
-
-
 
 :MERGEHEX
 echo Path of output file is %~1

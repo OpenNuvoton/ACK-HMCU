@@ -6,7 +6,7 @@
  * Copyright (C) 2020 Nuvoton Technology Corp. All rights reserved.
  ******************************************************************************/
  
- #include "main.h"
+#include "main.h"
 
 /**
   * @brief  The application entry point.

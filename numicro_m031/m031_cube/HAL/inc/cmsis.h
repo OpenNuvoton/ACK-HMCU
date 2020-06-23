@@ -9,7 +9,7 @@
 #ifndef OS_CMSIS_H
 #define OS_CMSIS_H
 
-#include "m031Series.h"
+#include "M031Series.h"
 #include "cmsis_nvic.h"
 
 // Support linker-generated symbol as start of relocated vector table.

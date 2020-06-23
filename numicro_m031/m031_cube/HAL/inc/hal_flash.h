@@ -19,9 +19,10 @@ extern "C" {
 
 
 #define FLASH_PAGE_SIZE     FMC_FLASH_PAGE_SIZE
-#define FLASH_BASE              FMC_APROM_BASE
-#define FLASH_END                   (FMC_APROM_BASE+128*1024)
-#define FLASH_SIZE              (FLASH_END-FLASH_BASE)
+#undef FLASH_BASE
+#define FLASH_BASE          FMC_APROM_BASE
+#define FLASH_END           (FMC_APROM_BASE+128*1024)
+#define FLASH_SIZE          (FLASH_END-FLASH_BASE)
 
 #define FLASHPARTDEV_READABLE_Pos       (0)
 #define FLASHPARTDEV_READABLE_Msk       (0x1u << FLASHPARTDEV_READABLE_Pos)

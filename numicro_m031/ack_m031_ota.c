@@ -32,6 +32,5 @@ bool ACKNuMicroOta_FlashWrite(uintptr_t address, const void *pData, uint32_t dat
     if (((uintptr_t)pData & 1) || (0 == dataSize16BitValues))
         return false;
 
-    //return ( u32DataSize == HAL_FLASH_Update ( (uint32_t*)address, (uint32_t *)pData, u32DataSize ) );
     return (u32DataSize == HAL_FLASH_Write(address, (uint32_t *)pData, u32DataSize));
 }

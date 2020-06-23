@@ -23,13 +23,6 @@
  * and similar resources needed by the implementations of rest of the ACKPlatform_* functions. */
 void ACKPlatform_Initialize(void)
 {
-    printf("Hello, I am ACK example.\n");
-
-    printf("ACK_NUMICRO_OTA_LOADER_PARTITION_START: 0x%08x.\n", (unsigned int)ACK_NUMICRO_OTA_LOADER_PARTITION_START);
-    printf("ACK_NUMICRO_OTA_STATUS_PARTITION_START: 0x%08x.\n", (unsigned int)ACK_NUMICRO_OTA_STATUS_PARTITION_START);
-    printf("ACK_NUMICRO_OTA_PRIMARY_PARTITION_START: 0x%08x.\n", (unsigned int)ACK_NUMICRO_OTA_PRIMARY_PARTITION_START);
-    printf("ACK_NUMICRO_OTA_STAGING_PARTITION_START: 0x%08x.\n", (unsigned int)ACK_NUMICRO_OTA_STAGING_PARTITION_START);
-
 #ifdef ACK_SAMPLE_APPLICATIONS_LED_PIN
     // Make sure the LED starts in an off state.
     ACKPlatform_WriteDigitalPin(ACK_HW_PIN_SAMPLE_APPLICATIONS_LED, false);
@@ -69,15 +62,13 @@ bool ACKPlatform_Send(const void *pBuffer, size_t length, uint32_t timeoutMillis
 bool ACKPlatform_Receive(void *pBuffer, size_t length, uint32_t timeoutMilliseconds)
 {
     uint32_t recv_size = 0;
-    //printf("[%s, %d](expect size:%d)\r\n", __func__, HAL_SYS_TICK_Get() ,length );
     HAL_Status ret = HAL_UART_Recv(ACK_MODULE_UART, pBuffer, length, &recv_size, timeoutMilliseconds);
     if ((ret != HAL_OK) || (recv_size != length))
-
     {
-        printf("[%s, %d](expect size:%d != real returned size:%d) timeout=%d \r\n", __func__, HAL_SYS_TICK_Get(), length, recv_size, timeoutMilliseconds);
+        ACK_DEBUG_PRINT_E("expect size:%d != real returned size:%d timeout=%d \r\n", HAL_SYS_TICK_Get(), length, recv_size, timeoutMilliseconds);
         return false;
     }
-    //printf("[%s, %d](expect size:%d == real returned size:%d) timeout=%d \r\n", __func__, HAL_SYS_TICK_Get(), length, recv_size, timeoutMilliseconds );
+
     return true;
 }
 
@@ -141,6 +132,7 @@ bool ACKPlatform_ReadDigitalPin(ACKHardwarePin_t pin)
 
 void ACKPlatform_SetDigitalPinPWMLevel(ACKHardwarePin_t pin, uint8_t val)
 {
+#ifdef ACK_SAMPLE_APPLICATIONS_LED_PIN
     S_PWMDev *psPwmDev = &g_asBoardPwmDev[pin - ACK_HW_PIN_SAMPLE_APPLICATIONS_LED];
 
     if (val)
@@ -150,6 +142,7 @@ void ACKPlatform_SetDigitalPinPWMLevel(ACKHardwarePin_t pin, uint8_t val)
 
     ACK_DEBUG_PRINT_I("pin=%d, value=%d -> freq=%d(Hz), dutycycle=%d(%%)", pin, val, psPwmDev->frequency, psPwmDev->dutycycle);
     HAL_PWM_Start(psPwmDev);
+#endif
 }
 
 #ifdef ACK_HOST_FIRMWARE_UPDATE
@@ -162,7 +155,7 @@ bool ACKPlatform_StartHostFirmwareUpdate(uint32_t size, uint32_t targetAddress, 
     bool ret = true;
     sg_otaSize = size;
     sg_otaCrc32 = crc32;
-    //printf("[%s](size=%d, targetAddress=%08x, CRC=0x%08x)\r\n", __func__, size, targetAddress, crc32 );
+
     ACKNuMicroOta_FlashBegin();
     if (ACK_NUMICRO_OTA_PRIMARY_PARTITION_START != targetAddress)
     {
@@ -194,8 +187,6 @@ bool ACKPlatform_SaveHostFirmwareUpdateChunk(uint32_t startOffset, const uint8_t
     bool result;
     uint32_t partitionOffset;
     uint32_t unitCount;
-
-    //printf("[%s](size=%d, startOffset=%08x, pdata=0x%08x)\r\n", __func__, size, startOffset, pData );
 
     ACKNuMicroOta_FlashBegin();
 
@@ -294,12 +285,12 @@ void ACKPlatform_ApplyHostFirmwareUpdate(void)
     FMC_Open();
 
 #if defined(__ICCARM__) || defined(__GNUC__)
-    printf("VECMAP = 0x%x\n", FMC_GetVECMAP());
+    ACK_DEBUG_PRINT_I("VECMAP = 0x%x\n", FMC_GetVECMAP());
 #else
 #ifndef BootLD
-    printf("Current RO Base = 0x%x, VECMAP = 0x%x\n", (uint32_t)&Image$$RO$$Base, FMC_GetVECMAP());
+    ACK_DEBUG_PRINT_I("Current RO Base = 0x%x, VECMAP = 0x%x\n", (uint32_t)&Image$$RO$$Base, FMC_GetVECMAP());
 #else
-    printf("VECMAP = 0x%x\n", FMC_GetVECMAP());
+    ACK_DEBUG_PRINT_I("VECMAP = 0x%x\n", FMC_GetVECMAP());
 #endif
 #endif
 

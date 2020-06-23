@@ -15,9 +15,9 @@
 
 S_CRCDev    g_sCrcDev =
 {
-    .crc                    =   CRC_0,
-    .eCRCMode       =   eCRCMode_CRC32,
-    .eCRCAttr       = (eCRCAttr_WDataRVS | eCRCAttr_ChecksumCom | eCRCAttr_ChecksumRVS),
+    .crc          =  CRC_0,
+    .eCRCMode     =  eCRCMode_CRC32,
+    .eCRCAttr     = (eCRCAttr_WDataRVS | eCRCAttr_ChecksumCom | eCRCAttr_ChecksumRVS),
     .eCRCCpuWLen  = eCRCCpuWLen_32,
     .u32SeedValue = 0xffffffff
 };
@@ -40,8 +40,8 @@ void peripheral_init(void)
     /* Enable UART module clock */
     CLK_EnableModuleClock(UART0_MODULE);
 
-    /* Select UART module clock source as HXT and UART module clock divider as 1 */
-    CLK_SetModuleClock(UART0_MODULE, CLK_CLKSEL1_UART0SEL_HXT, CLK_CLKDIV0_UART0(1));
+    /* Select UART module clock source as HIRC and UART module clock divider as 1 */
+    CLK_SetModuleClock(UART0_MODULE, CLK_CLKSEL1_UART0SEL_HIRC, CLK_CLKDIV0_UART0(1));
 
     /* Set GPB multi-function pins for UART0 RXD and TXD */
     SYS->GPB_MFPH = (SYS->GPB_MFPH & ~(SYS_GPB_MFPH_PB12MFP_Msk | SYS_GPB_MFPH_PB13MFP_Msk)) | (SYS_GPB_MFPH_PB12MFP_UART0_RXD | SYS_GPB_MFPH_PB13MFP_UART0_TXD);

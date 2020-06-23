@@ -1,4 +1,12 @@
-/* Define to prevent recursive inclusion -------------------------------------*/
+/**************************************************************************//**
+ * @file     main.h
+ * @brief
+ * @note
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ * Copyright (C) 2020 Nuvoton Technology Corp. All rights reserved.
+ ******************************************************************************/
+
 #ifndef __MAIN_H
 #define __MAIN_H
 
@@ -14,5 +22,3 @@ extern "C" {
 #endif
 
 #endif /* __MAIN_H */
-
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

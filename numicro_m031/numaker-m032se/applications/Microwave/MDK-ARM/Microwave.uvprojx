@@ -7,7 +7,7 @@
 
   <Targets>
     <Target>
-      <TargetName>SmartLight</TargetName>
+      <TargetName>Microwave</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <pCCUsed>6130001::V6.13.1::.\ARMCLANG</pCCUsed>
@@ -49,7 +49,7 @@
             <InvalidFlash>1</InvalidFlash>
           </TargetStatus>
           <OutputDirectory>Build\</OutputDirectory>
-          <OutputName>SmartLight</OutputName>
+          <OutputName>Microwave</OutputName>
           <CreateExecutable>1</CreateExecutable>
           <CreateLib>0</CreateLib>
           <CreateHexFile>1</CreateHexFile>
@@ -338,7 +338,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>..;..\..\..\..;..\..\..\common\Inc;..\..\..\..\m031_cube\CMSIS\Include;..\..\..\..\m031_cube\HAL\inc;..\..\..\..\m031_cube\HAL\inc\misc;..\..\..\..\m031_cube\Device\Nuvoton\M031\Include;..\..\..\..\m031_cube\StdDriver\inc;..\..\..\..\..\..\..\applications\SmartLight;..\..\..\..\..\..\..\include;..\..\..\..\..\..\..\core;..\..\..\..\..\..\..\core\generated;..\..\..\..\..\..\..\core\generated\v3avs_capabilities;..\..\..\..\..\..\..\core\generated\v3avs_types;..\..\..\..\..\..\..\external\nanopb</IncludePath>
+              <IncludePath>..;..\..\..\..;..\..\..\common\Inc;..\..\..\..\m031_cube\CMSIS\Include;..\..\..\..\m031_cube\HAL\inc;..\..\..\..\m031_cube\HAL\inc\misc;..\..\..\..\m031_cube\Device\Nuvoton\M031\Include;..\..\..\..\m031_cube\StdDriver\inc;..\..\..\..\..\..\..\applications\Microwave;..\..\..\..\..\..\..\include;..\..\..\..\..\..\..\core;..\..\..\..\..\..\..\core\generated;..\..\..\..\..\..\..\core\generated\v3avs_capabilities;..\..\..\..\..\..\..\core\generated\v3avs_types;..\..\..\..\..\..\..\external\nanopb</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -398,9 +398,19 @@
               <FilePath>..\..\..\..\..\..\ack_user_device.c</FilePath>
             </File>
             <File>
-              <FileName>SmartLight.c</FileName>
+              <FileName>Alexa.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\..\..\applications\SmartLight\SmartLight.c</FilePath>
+              <FilePath>..\..\..\..\..\..\..\applications\Microwave\Alexa.c</FilePath>
+            </File>
+            <File>
+              <FileName>Hardware.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\..\..\..\applications\Microwave\Hardware.c</FilePath>
+            </File>
+            <File>
+              <FileName>Microwave.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\..\..\..\applications\Microwave\Microwave.c</FilePath>
             </File>
           </Files>
         </Group>

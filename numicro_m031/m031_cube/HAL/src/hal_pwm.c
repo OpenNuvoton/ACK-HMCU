@@ -50,7 +50,7 @@ static void platform_pwmout_config(S_PWMDev *psPwmDev, int start)
     PWM_T *pwm_base = (PWM_T *) NU_MODBASE(psPwmDev->pwm);
     uint32_t chn = NU_MODSUBINDEX(psPwmDev->pwm);
 
-    printf("[%s] %d frequency=%d, dutycycle=%d, start=%d\n", __func__, chn, psPwmDev->frequency, psPwmDev->dutycycle, start);
+//    printf("[%s] %d frequency=%d, dutycycle=%d, start=%d\n", __func__, chn, psPwmDev->frequency, psPwmDev->dutycycle, start);
 
     // To avoid abnormal pulse on (re-)configuration, follow the sequence: stop/configure(/re-start).
     // Stop

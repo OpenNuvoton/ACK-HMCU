@@ -7,23 +7,23 @@
 
   <Targets>
     <Target>
-      <TargetName>NuStamp</TargetName>
+      <TargetName>DashReplenishment</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <pCCUsed>6130001::V6.13.1::.\ARMCLANG</pCCUsed>
       <uAC6>1</uAC6>
       <TargetOption>
         <TargetCommonOption>
-          <Device>M031LE3AE</Device>
+          <Device>M032SE3AE</Device>
           <Vendor>Nuvoton</Vendor>
           <PackID>Nuvoton.NuMicro_DFP.1.3.9</PackID>
           <PackURL>http://www.nuvoton.com/hq/enu/Documents/KEILSoftwarePack</PackURL>
           <Cpu>IRAM(0x20000000,0x4000) IROM(0x00000000,0x20000) CPUTYPE("Cortex-M0") CLOCK(12000000)</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
           <StartupFile></StartupFile>
-          <FlashDriverDll>UL2CM3(-S0 -C0 -P0 -FD20000000 -FC1000 -FN1 -FF0M031_AP_128 -FS00 -FL020000 -FP0($$Device:M031LE3AE$Flash\M031_AP_128.FLM))</FlashDriverDll>
+          <FlashDriverDll>UL2CM3(-S0 -C0 -P0 -FD20000000 -FC1000 -FN1 -FF0M031_AP_128 -FS00 -FL020000 -FP0($$Device:M032SE3AE$Flash\M031_AP_128.FLM))</FlashDriverDll>
           <DeviceId>0</DeviceId>
-          <RegisterFile>$$Device:M031LE3AE$Device\M031\Include\M031Series.h</RegisterFile>
+          <RegisterFile>$$Device:M032SE3AE$Device\M031\Include\M031Series.h</RegisterFile>
           <MemoryEnv></MemoryEnv>
           <Cmp></Cmp>
           <Asm></Asm>
@@ -33,7 +33,7 @@
           <SLE66CMisc></SLE66CMisc>
           <SLE66AMisc></SLE66AMisc>
           <SLE66LinkerMisc></SLE66LinkerMisc>
-          <SFDFile>$$Device:M031LE3AE$SVD\Nuvoton\M031AE_v1.svd</SFDFile>
+          <SFDFile>$$Device:M032SE3AE$SVD\Nuvoton\M031AE_v1.svd</SFDFile>
           <bCustSvd>0</bCustSvd>
           <UseEnv>0</UseEnv>
           <BinPath></BinPath>
@@ -48,8 +48,8 @@
             <NotGenerated>0</NotGenerated>
             <InvalidFlash>1</InvalidFlash>
           </TargetStatus>
-          <OutputDirectory>.\Build\</OutputDirectory>
-          <OutputName>Smartlight</OutputName>
+          <OutputDirectory>Build\</OutputDirectory>
+          <OutputName>DashReplenishment</OutputName>
           <CreateExecutable>1</CreateExecutable>
           <CreateLib>0</CreateLib>
           <CreateHexFile>1</CreateHexFile>
@@ -338,7 +338,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>..\..\..\common\Inc;..\..\..\..\m031_cube\CMSIS\Include;..\..\..\..\m031_cube\HAL\inc;..\..\..\..\m031_cube\HAL\inc\misc;..\..\..\..\m031_cube\Device\Nuvoton\M031\Include;..\..\..\..\m031_cube\StdDriver\inc;..\..\..\..\..\..\..\applications\YanKon_BR30;..\..\..\..\..\..\..\include;..\..\..\..\..\..\..\core;..\..\..\..\..\..\..\core\generated;..\..\..\..\..\..\..\core\generated\v3avs_capabilities;..\..\..\..\..\..\..\core\generated\v3avs_types;..\..\..\..\..\..\..\external\nanopb;..;..\..\..\..</IncludePath>
+              <IncludePath>..;..\..\..\..;..\..\..\common\Inc;..\..\..\..\m031_cube\CMSIS\Include;..\..\..\..\m031_cube\HAL\inc;..\..\..\..\m031_cube\HAL\inc\misc;..\..\..\..\m031_cube\Device\Nuvoton\M031\Include;..\..\..\..\m031_cube\StdDriver\inc;..\..\..\..\..\..\..\applications\DashReplenishment;..\..\..\..\..\..\..\include;..\..\..\..\..\..\..\core;..\..\..\..\..\..\..\core\generated;..\..\..\..\..\..\..\core\generated\v3avs_capabilities;..\..\..\..\..\..\..\core\generated\v3avs_types;..\..\..\..\..\..\..\external\nanopb</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -388,19 +388,19 @@
               <FilePath>..\..\..\..\ack_m031_ota.c</FilePath>
             </File>
             <File>
-              <FileName>ack_user_device.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\ack_user_device.c</FilePath>
-            </File>
-            <File>
               <FileName>ack_m031_platform.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\..\ack_m031_platform.c</FilePath>
             </File>
             <File>
-              <FileName>Smartlight.c</FileName>
+              <FileName>ack_user_device.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Smartlight.c</FilePath>
+              <FilePath>..\..\..\..\..\..\ack_user_device.c</FilePath>
+            </File>
+            <File>
+              <FileName>DashReplenishment.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\..\..\..\applications\DashReplenishment\DashReplenishment.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -596,6 +596,26 @@
               <FileName>ack_core_userguidedsetup.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\..\..\..\..\core\ack_core_userguidedsetup.c</FilePath>
+            </File>
+            <File>
+              <FileName>ack_core_crc32.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\..\..\..\core\ack_core_crc32.c</FilePath>
+            </File>
+            <File>
+              <FileName>ack_core_math.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\..\..\..\core\ack_core_math.c</FilePath>
+            </File>
+            <File>
+              <FileName>ack_core_tick64.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\..\..\..\core\ack_core_tick64.c</FilePath>
+            </File>
+            <File>
+              <FileName>ack_core_validation.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\..\..\..\core\ack_core_validation.c</FilePath>
             </File>
           </Files>
         </Group>

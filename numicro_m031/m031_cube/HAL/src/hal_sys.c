@@ -136,9 +136,6 @@ void HAL_SYS_TICK_Resume(void)
     SET_BIT(SysTick->CTRL, SysTick_CTRL_TICKINT_Msk);
 }
 
-#define DEF_USE_HXT     0
-#define DEF_USE_LXT     0
-
 HAL_Status HAL_SYS_Init(void)
 {
     // NOTE: Support singleton semantics to be called from other init functions

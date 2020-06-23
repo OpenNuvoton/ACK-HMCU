@@ -7,7 +7,7 @@
 
   <Targets>
     <Target>
-      <TargetName>SmartLight</TargetName>
+      <TargetName>HelloWorld</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <pCCUsed>6130001::V6.13.1::.\ARMCLANG</pCCUsed>
@@ -49,7 +49,7 @@
             <InvalidFlash>1</InvalidFlash>
           </TargetStatus>
           <OutputDirectory>Build\</OutputDirectory>
-          <OutputName>SmartLight</OutputName>
+          <OutputName>HelloWorld</OutputName>
           <CreateExecutable>1</CreateExecutable>
           <CreateLib>0</CreateLib>
           <CreateHexFile>1</CreateHexFile>
@@ -138,7 +138,7 @@
           </Flash1>
           <bUseTDR>1</bUseTDR>
           <Flash2>BIN\UL2CM3.DLL</Flash2>
-          <Flash3>"" ()</Flash3>
+          <Flash3></Flash3>
           <Flash4></Flash4>
           <pFcarmOut></pFcarmOut>
           <pFcarmGrp></pFcarmGrp>
@@ -338,7 +338,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>..;..\..\..\..;..\..\..\common\Inc;..\..\..\..\m031_cube\CMSIS\Include;..\..\..\..\m031_cube\HAL\inc;..\..\..\..\m031_cube\HAL\inc\misc;..\..\..\..\m031_cube\Device\Nuvoton\M031\Include;..\..\..\..\m031_cube\StdDriver\inc;..\..\..\..\..\..\..\applications\SmartLight;..\..\..\..\..\..\..\include;..\..\..\..\..\..\..\core;..\..\..\..\..\..\..\core\generated;..\..\..\..\..\..\..\core\generated\v3avs_capabilities;..\..\..\..\..\..\..\core\generated\v3avs_types;..\..\..\..\..\..\..\external\nanopb</IncludePath>
+              <IncludePath>..;..\..\..\..;..\..\..\common\Inc;..\..\..\..\m031_cube\CMSIS\Include;..\..\..\..\m031_cube\HAL\inc;..\..\..\..\m031_cube\HAL\inc\misc;..\..\..\..\m031_cube\Device\Nuvoton\M031\Include;..\..\..\..\m031_cube\StdDriver\inc;..\..\..\..\..\..\..\applications\HelloWorld;..\..\..\..\..\..\..\include;..\..\..\..\..\..\..\core;..\..\..\..\..\..\..\core\generated;..\..\..\..\..\..\..\core\generated\v3avs_capabilities;..\..\..\..\..\..\..\core\generated\v3avs_types;..\..\..\..\..\..\..\external\nanopb</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -393,14 +393,24 @@
               <FilePath>..\..\..\..\ack_m031_platform.c</FilePath>
             </File>
             <File>
+              <FileName>HelloWorld.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\..\..\..\applications\HelloWorld\HelloWorld.c</FilePath>
+            </File>
+            <File>
+              <FileName>HelloWorld_Alexa.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\..\..\..\applications\HelloWorld\HelloWorld_Alexa.c</FilePath>
+            </File>
+            <File>
+              <FileName>HelloWorld_Hardware.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\..\..\..\applications\HelloWorld\HelloWorld_Hardware.c</FilePath>
+            </File>
+            <File>
               <FileName>ack_user_device.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\..\..\..\ack_user_device.c</FilePath>
-            </File>
-            <File>
-              <FileName>SmartLight.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\..\..\applications\SmartLight\SmartLight.c</FilePath>
             </File>
           </Files>
         </Group>
