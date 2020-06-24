@@ -1,9 +1,8 @@
 # ACK-HMCU
-This repository is part of ACK_Device_SDK.
 
 ## Merge
 Please download ACK_Device_SDK_3.1 package from Amazon offical website.<br>
-Then, copy files and folder in this repository into <Path-to-ACK_Device_SDK>\user\platform\ folder.
+Then, copy 'numicro_m031' folder in this repository into <Path-to-ACK_Device_SDK>\user\platform\.
 
 ## Document
 * [ACK HMCU application guide][1]
