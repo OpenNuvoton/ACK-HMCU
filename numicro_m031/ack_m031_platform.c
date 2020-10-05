@@ -23,19 +23,7 @@
  * and similar resources needed by the implementations of rest of the ACKPlatform_* functions. */
 void ACKPlatform_Initialize(void)
 {
-#ifdef ACK_SAMPLE_APPLICATIONS_LED_PIN
-    // Make sure the LED starts in an off state.
-    ACKPlatform_WriteDigitalPin(ACK_HW_PIN_SAMPLE_APPLICATIONS_LED, false);
-#endif
-#ifdef ACK_SAMPLE_APPLICATIONS_GPIO_PIN_1
-    ACKPlatform_WriteDigitalPin(ACK_HW_PIN_SAMPLE_APPLICATIONS_GPIO_1, false);
-#endif
-#ifdef ACK_SAMPLE_APPLICATIONS_GPIO_PIN_2
-    ACKPlatform_WriteDigitalPin(ACK_HW_PIN_SAMPLE_APPLICATIONS_GPIO_2, false);
-#endif
-#ifdef ACK_SAMPLE_APPLICATIONS_GPIO_PIN_3
-    ACKPlatform_WriteDigitalPin(ACK_HW_PIN_SAMPLE_APPLICATIONS_GPIO_3, false);
-#endif
+
 }
 
 /* Provide elapsed milliseconds (can be used for timing)
@@ -132,8 +120,7 @@ bool ACKPlatform_ReadDigitalPin(ACKHardwarePin_t pin)
 
 void ACKPlatform_SetDigitalPinPWMLevel(ACKHardwarePin_t pin, uint8_t val)
 {
-#ifdef ACK_SAMPLE_APPLICATIONS_LED_PIN
-    S_PWMDev *psPwmDev = &g_asBoardPwmDev[pin - ACK_HW_PIN_SAMPLE_APPLICATIONS_LED];
+    S_PWMDev *psPwmDev = &g_asBoardPwmDev[pin];
 
     if (val)
         psPwmDev->dutycycle = (float)(val + 1) * 100 / 256;
@@ -142,7 +129,6 @@ void ACKPlatform_SetDigitalPinPWMLevel(ACKHardwarePin_t pin, uint8_t val)
 
     ACK_DEBUG_PRINT_I("pin=%d, value=%d -> freq=%d(Hz), dutycycle=%d(%%)", pin, val, psPwmDev->frequency, psPwmDev->dutycycle);
     HAL_PWM_Start(psPwmDev);
-#endif
 }
 
 #ifdef ACK_HOST_FIRMWARE_UPDATE
