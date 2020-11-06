@@ -16,7 +16,7 @@
         <TargetCommonOption>
           <Device>M031LE3AE</Device>
           <Vendor>Nuvoton</Vendor>
-          <PackID>Nuvoton.NuMicro_DFP.1.3.9</PackID>
+          <PackID>Nuvoton.NuMicro_DFP.1.3.10</PackID>
           <PackURL>http://www.nuvoton.com/hq/enu/Documents/KEILSoftwarePack</PackURL>
           <Cpu>IRAM(0x20000000,0x4000) IROM(0x00000000,0x20000) CPUTYPE("Cortex-M0") CLOCK(12000000)</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
@@ -388,11 +388,6 @@
               <FilePath>..\..\..\..\ack_m031_ota.c</FilePath>
             </File>
             <File>
-              <FileName>ack_user_device.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\ack_user_device.c</FilePath>
-            </File>
-            <File>
               <FileName>ack_m031_platform.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\..\ack_m031_platform.c</FilePath>
@@ -401,6 +396,11 @@
               <FileName>Smartlight.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Smartlight.c</FilePath>
+            </File>
+            <File>
+              <FileName>ack_user_device.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\ack_user_device.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -498,19 +498,9 @@
               <FilePath>..\..\..\..\..\..\..\core\ack_core_event_builder.c</FilePath>
             </File>
             <File>
-              <FileName>ack_core_factoryreset.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\..\..\core\ack_core_factoryreset.c</FilePath>
-            </File>
-            <File>
               <FileName>ack_core_heaplet.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\..\..\..\..\core\ack_core_heaplet.c</FilePath>
-            </File>
-            <File>
-              <FileName>ack_core_hostconfig.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\..\..\core\ack_core_hostconfig.c</FilePath>
             </File>
             <File>
               <FileName>ack_core_lifecycle.c</FileName>
@@ -593,9 +583,34 @@
               <FilePath>..\..\..\..\..\..\..\core\ack_core_togglecontroller.c</FilePath>
             </File>
             <File>
-              <FileName>ack_core_userguidedsetup.c</FileName>
+              <FileName>ack_core_crc32.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\..\..\core\ack_core_userguidedsetup.c</FilePath>
+              <FilePath>..\..\..\..\..\..\..\core\ack_core_crc32.c</FilePath>
+            </File>
+            <File>
+              <FileName>ack_core_math.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\..\..\..\core\ack_core_math.c</FilePath>
+            </File>
+            <File>
+              <FileName>ack_core_module_acp.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\..\..\..\core\ack_core_module_acp.c</FilePath>
+            </File>
+            <File>
+              <FileName>ack_core_thermostatcontroller.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\..\..\..\core\ack_core_thermostatcontroller.c</FilePath>
+            </File>
+            <File>
+              <FileName>ack_core_tick64.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\..\..\..\core\ack_core_tick64.c</FilePath>
+            </File>
+            <File>
+              <FileName>ack_core_validation.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\..\..\..\core\ack_core_validation.c</FilePath>
             </File>
           </Files>
         </Group>
