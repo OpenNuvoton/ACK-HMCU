@@ -67,5 +67,4 @@ void mcu_init(void)
 {
     HAL_SYS_Init();
     peripheral_init();
-    //printf("\n\nCPU @ %dHz\n", SystemCoreClock);
 }

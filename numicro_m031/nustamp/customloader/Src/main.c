@@ -18,8 +18,6 @@ int main(void)
     /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
     mcu_init();
 
-    printf("Hello, I am CustomerLoader.\n");
-
     Loader();
 
     while (1);
