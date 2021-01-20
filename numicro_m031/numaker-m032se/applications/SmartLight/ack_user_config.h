@@ -9,9 +9,9 @@
 
 /*
     Note: this application is a sample only. It may omit functionality that would be required in a
-    real device. The applicationâ€™s source code is structured to maximize illustrative utility, and not
+    real device. The application?™s source code is structured to maximize illustrative utility, and not
     to suggest a reference design for any category of device or to provide a definitive framework for
-    a deviceâ€™s firmware.
+    a device?™s firmware.
 */
 
 /*
@@ -23,7 +23,7 @@
 #define __ACK_USER_CONFIG_H__
 
 // Debug print behavior. Leave ACK_DEBUG_PRINT_LEVEL undefined for no debug printing.
-#define ACK_DEBUG_PRINT_LEVEL ACK_DEBUG_PRINT_LEVEL_INFO
+#define ACK_DEBUG_PRINT_LEVEL ACK_DEBUG_PRINT_LEVEL_CRITICAL
 
 // Size of buffer from which memory blocks are allocated during processing.
 #define ACK_MEMORY_POOL_SIZE 1024

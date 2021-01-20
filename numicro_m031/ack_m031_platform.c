@@ -270,19 +270,10 @@ void ACKPlatform_ApplyHostFirmwareUpdate(void)
 
     FMC_Open();
 
-#if defined(__ICCARM__) || defined(__GNUC__)
-    ACK_DEBUG_PRINT_I("VECMAP = 0x%x\n", FMC_GetVECMAP());
-#else
-#ifndef BootLD
-    ACK_DEBUG_PRINT_I("Current RO Base = 0x%x, VECMAP = 0x%x\n", (uint32_t)&Image$$RO$$Base, FMC_GetVECMAP());
-#else
-    ACK_DEBUG_PRINT_I("VECMAP = 0x%x\n", FMC_GetVECMAP());
-#endif
-#endif
+    ACK_DEBUG_PRINT_C("VECMAP = 0x%x\n", FMC_GetVECMAP());
+    while ((UART0->FIFOSTS & UART_FIFOSTS_TXEMPTY_Msk) == 0);
 
     FMC_SetVectorPageAddr(ACK_NUMICRO_OTA_LOADER_PARTITION_START);
-
-    while ((UART0->FIFOSTS & UART_FIFOSTS_TXEMPTY_Msk) == 0);
 
     /* Reset Chip to reload new CONFIG value */
     SYS_ResetChip();

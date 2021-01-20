@@ -70,7 +70,7 @@ uint64_t ACKUser_GetFirmwareVersion(void)
     // firmware versioning scheme.
     uint64_t u64BuildTime=1;
     GetCompileDateTime(&u64BuildTime);
-    ACK_DEBUG_PRINT_I("%s %s 0x%" PRIx64 "", __DATE__, __TIME__, u64BuildTime );
+    ACK_DEBUG_PRINT_C("%s %s 0x%" PRIx64 "", __DATE__, __TIME__, u64BuildTime );
     return u64BuildTime;
 }
 
