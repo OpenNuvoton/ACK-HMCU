@@ -338,7 +338,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>..\..\..\common\Inc;..\..\..\..\m031_cube\CMSIS\Include;..\..\..\..\m031_cube\HAL\inc;..\..\..\..\m031_cube\HAL\inc\misc;..\..\..\..\m031_cube\Device\Nuvoton\M031\Include;..\..\..\..\m031_cube\StdDriver\inc;..\..\..\..\..\..\..\applications\YanKon_BR30;..\..\..\..\..\..\..\include;..\..\..\..\..\..\..\core;..\..\..\..\..\..\..\core\generated;..\..\..\..\..\..\..\core\generated\v3avs_capabilities;..\..\..\..\..\..\..\core\generated\v3avs_types;..\..\..\..\..\..\..\external\nanopb;..;..\..\..\..</IncludePath>
+              <IncludePath>..;..\..\..\..;..\..\..\common\Inc;..\..\..\..\m031_cube\CMSIS\Include;..\..\..\..\m031_cube\HAL\inc;..\..\..\..\m031_cube\HAL\inc\misc;..\..\..\..\m031_cube\Device\Nuvoton\M031\Include;..\..\..\..\m031_cube\StdDriver\inc;..\..\..\..\..\..\..\applications\SmartLight;..\..\..\..\..\..\..\include;..\..\..\..\..\..\..\core;..\..\..\..\..\..\..\core\generated;..\..\..\..\..\..\..\core\generated\v3avs_capabilities;..\..\..\..\..\..\..\external\nanopb</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -448,6 +448,11 @@
               <FilePath>..\..\..\..\..\..\..\core\ack_core_cooking_common.c</FilePath>
             </File>
             <File>
+              <FileName>ack_core_cooking_mode.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\..\..\..\core\ack_core_cooking_mode.c</FilePath>
+            </File>
+            <File>
               <FileName>ack_core_cookingcontroller.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\..\..\..\..\core\ack_core_cookingcontroller.c</FilePath>
@@ -483,6 +488,36 @@
               <FilePath>..\..\..\..\..\..\..\core\ack_core_cookingtimecontroller.c</FilePath>
             </File>
             <File>
+              <FileName>ack_core_count.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\..\..\..\core\ack_core_count.c</FilePath>
+            </File>
+            <File>
+              <FileName>ack_core_crc32.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\..\..\..\core\ack_core_crc32.c</FilePath>
+            </File>
+            <File>
+              <FileName>ack_core_debug_print.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\..\..\..\core\ack_core_debug_print.c</FilePath>
+            </File>
+            <File>
+              <FileName>ack_core_device_usage.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\..\..\..\core\ack_core_device_usage.c</FilePath>
+            </File>
+            <File>
+              <FileName>ack_core_document.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\..\..\..\core\ack_core_document.c</FilePath>
+            </File>
+            <File>
+              <FileName>ack_core_document_wrappers.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\..\..\..\core\ack_core_document_wrappers.c</FilePath>
+            </File>
+            <File>
               <FileName>ack_core_drs.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\..\..\..\..\core\ack_core_drs.c</FilePath>
@@ -498,9 +533,29 @@
               <FilePath>..\..\..\..\..\..\..\core\ack_core_event_builder.c</FilePath>
             </File>
             <File>
+              <FileName>ack_core_fixed_memory.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\..\..\..\core\ack_core_fixed_memory.c</FilePath>
+            </File>
+            <File>
+              <FileName>ack_core_food_item.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\..\..\..\core\ack_core_food_item.c</FilePath>
+            </File>
+            <File>
               <FileName>ack_core_heaplet.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\..\..\..\..\core\ack_core_heaplet.c</FilePath>
+            </File>
+            <File>
+              <FileName>ack_core_inventory_level.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\..\..\..\core\ack_core_inventory_level.c</FilePath>
+            </File>
+            <File>
+              <FileName>ack_core_item_quantity.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\..\..\..\core\ack_core_item_quantity.c</FilePath>
             </File>
             <File>
               <FileName>ack_core_lifecycle.c</FileName>
@@ -513,6 +568,11 @@
               <FilePath>..\..\..\..\..\..\..\core\ack_core_logging.c</FilePath>
             </File>
             <File>
+              <FileName>ack_core_math.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\..\..\..\core\ack_core_math.c</FilePath>
+            </File>
+            <File>
               <FileName>ack_core_metrics.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\..\..\..\..\core\ack_core_metrics.c</FilePath>
@@ -521,6 +581,11 @@
               <FileName>ack_core_modecontroller.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\..\..\..\..\core\ack_core_modecontroller.c</FilePath>
+            </File>
+            <File>
+              <FileName>ack_core_module_acp.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\..\..\..\core\ack_core_module_acp.c</FilePath>
             </File>
             <File>
               <FileName>ack_core_module_pins.c</FileName>
@@ -533,11 +598,6 @@
               <FilePath>..\..\..\..\..\..\..\core\ack_core_modulediagnostics.c</FilePath>
             </File>
             <File>
-              <FileName>ack_core_ota.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\..\..\core\ack_core_ota.c</FilePath>
-            </File>
-            <File>
               <FileName>ack_core_outbound_events.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\..\..\..\..\core\ack_core_outbound_events.c</FilePath>
@@ -546,6 +606,11 @@
               <FileName>ack_core_percentagecontroller.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\..\..\..\..\core\ack_core_percentagecontroller.c</FilePath>
+            </File>
+            <File>
+              <FileName>ack_core_power_level.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\..\..\..\core\ack_core_power_level.c</FilePath>
             </File>
             <File>
               <FileName>ack_core_powercontroller.c</FileName>
@@ -573,29 +638,14 @@
               <FilePath>..\..\..\..\..\..\..\core\ack_core_status.c</FilePath>
             </File>
             <File>
-              <FileName>ack_core_timeholdcontroller.c</FileName>
+              <FileName>ack_core_temperature.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\..\..\core\ack_core_timeholdcontroller.c</FilePath>
+              <FilePath>..\..\..\..\..\..\..\core\ack_core_temperature.c</FilePath>
             </File>
             <File>
-              <FileName>ack_core_togglecontroller.c</FileName>
+              <FileName>ack_core_temperaturesensor.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\..\..\core\ack_core_togglecontroller.c</FilePath>
-            </File>
-            <File>
-              <FileName>ack_core_crc32.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\..\..\core\ack_core_crc32.c</FilePath>
-            </File>
-            <File>
-              <FileName>ack_core_math.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\..\..\core\ack_core_math.c</FilePath>
-            </File>
-            <File>
-              <FileName>ack_core_module_acp.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\..\..\core\ack_core_module_acp.c</FilePath>
+              <FilePath>..\..\..\..\..\..\..\core\ack_core_temperaturesensor.c</FilePath>
             </File>
             <File>
               <FileName>ack_core_thermostatcontroller.c</FileName>
@@ -608,9 +658,34 @@
               <FilePath>..\..\..\..\..\..\..\core\ack_core_tick64.c</FilePath>
             </File>
             <File>
+              <FileName>ack_core_time_interval.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\..\..\..\core\ack_core_time_interval.c</FilePath>
+            </File>
+            <File>
+              <FileName>ack_core_timeholdcontroller.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\..\..\..\core\ack_core_timeholdcontroller.c</FilePath>
+            </File>
+            <File>
+              <FileName>ack_core_togglecontroller.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\..\..\..\core\ack_core_togglecontroller.c</FilePath>
+            </File>
+            <File>
               <FileName>ack_core_validation.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\..\..\..\..\core\ack_core_validation.c</FilePath>
+            </File>
+            <File>
+              <FileName>ack_core_volume.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\..\..\..\core\ack_core_volume.c</FilePath>
+            </File>
+            <File>
+              <FileName>ack_core_weight.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\..\..\..\core\ack_core_weight.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -618,284 +693,14 @@
           <GroupName>ACKCoreGenerated</GroupName>
           <Files>
             <File>
-              <FileName>acp.pb.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\..\..\core\generated\acp.pb.c</FilePath>
-            </File>
-            <File>
-              <FileName>V3Alexa.pb.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\..\..\core\generated\v3avs_capabilities\V3Alexa.pb.c</FilePath>
-            </File>
-            <File>
-              <FileName>V3AlexaBrightnessController.pb.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\..\..\core\generated\v3avs_capabilities\V3AlexaBrightnessController.pb.c</FilePath>
-            </File>
-            <File>
-              <FileName>V3AlexaColorController.pb.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\..\..\core\generated\v3avs_capabilities\V3AlexaColorController.pb.c</FilePath>
-            </File>
-            <File>
-              <FileName>V3AlexaColorTemperatureController.pb.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\..\..\core\generated\v3avs_capabilities\V3AlexaColorTemperatureController.pb.c</FilePath>
-            </File>
-            <File>
-              <FileName>V3AlexaCooking.pb.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\..\..\core\generated\v3avs_capabilities\V3AlexaCooking.pb.c</FilePath>
-            </File>
-            <File>
-              <FileName>V3AlexaCookingFoodTemperatureController.pb.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\..\..\core\generated\v3avs_capabilities\V3AlexaCookingFoodTemperatureController.pb.c</FilePath>
-            </File>
-            <File>
-              <FileName>V3AlexaCookingFoodTemperatureSensor.pb.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\..\..\core\generated\v3avs_capabilities\V3AlexaCookingFoodTemperatureSensor.pb.c</FilePath>
-            </File>
-            <File>
-              <FileName>V3AlexaCookingPresetController.pb.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\..\..\core\generated\v3avs_capabilities\V3AlexaCookingPresetController.pb.c</FilePath>
-            </File>
-            <File>
-              <FileName>V3AlexaCookingTemperatureController.pb.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\..\..\core\generated\v3avs_capabilities\V3AlexaCookingTemperatureController.pb.c</FilePath>
-            </File>
-            <File>
-              <FileName>V3AlexaCookingTemperatureSensor.pb.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\..\..\core\generated\v3avs_capabilities\V3AlexaCookingTemperatureSensor.pb.c</FilePath>
-            </File>
-            <File>
-              <FileName>V3AlexaCookingTimeController.pb.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\..\..\core\generated\v3avs_capabilities\V3AlexaCookingTimeController.pb.c</FilePath>
-            </File>
-            <File>
-              <FileName>V3AlexaEndpointHealth.pb.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\..\..\core\generated\v3avs_capabilities\V3AlexaEndpointHealth.pb.c</FilePath>
-            </File>
-            <File>
-              <FileName>V3AlexaInventoryLevelSensor.pb.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\..\..\core\generated\v3avs_capabilities\V3AlexaInventoryLevelSensor.pb.c</FilePath>
-            </File>
-            <File>
-              <FileName>V3AlexaInventoryLevelUsageSensor.pb.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\..\..\core\generated\v3avs_capabilities\V3AlexaInventoryLevelUsageSensor.pb.c</FilePath>
-            </File>
-            <File>
-              <FileName>V3AlexaInventoryUsageSensor.pb.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\..\..\core\generated\v3avs_capabilities\V3AlexaInventoryUsageSensor.pb.c</FilePath>
-            </File>
-            <File>
-              <FileName>V3AlexaModeController.pb.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\..\..\core\generated\v3avs_capabilities\V3AlexaModeController.pb.c</FilePath>
-            </File>
-            <File>
-              <FileName>V3AlexaPercentageController.pb.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\..\..\core\generated\v3avs_capabilities\V3AlexaPercentageController.pb.c</FilePath>
-            </File>
-            <File>
-              <FileName>V3AlexaPowerController.pb.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\..\..\core\generated\v3avs_capabilities\V3AlexaPowerController.pb.c</FilePath>
-            </File>
-            <File>
-              <FileName>V3AlexaRangeController.pb.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\..\..\core\generated\v3avs_capabilities\V3AlexaRangeController.pb.c</FilePath>
-            </File>
-            <File>
-              <FileName>V3AlexaTimeHoldController.pb.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\..\..\core\generated\v3avs_capabilities\V3AlexaTimeHoldController.pb.c</FilePath>
-            </File>
-            <File>
-              <FileName>V3AlexaToggleController.pb.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\..\..\core\generated\v3avs_capabilities\V3AlexaToggleController.pb.c</FilePath>
-            </File>
-            <File>
               <FileName>V3AVS.pb.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\..\..\..\..\core\generated\v3avs_capabilities\V3AVS.pb.c</FilePath>
             </File>
             <File>
-              <FileName>V3Brightness.pb.c</FileName>
+              <FileName>acp.pb.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\..\..\core\generated\v3avs_types\V3Brightness.pb.c</FilePath>
-            </File>
-            <File>
-              <FileName>V3BrightnessDelta.pb.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\..\..\core\generated\v3avs_types\V3BrightnessDelta.pb.c</FilePath>
-            </File>
-            <File>
-              <FileName>V3CookingMode.pb.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\..\..\core\generated\v3avs_types\V3CookingMode.pb.c</FilePath>
-            </File>
-            <File>
-              <FileName>V3Color.pb.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\..\..\core\generated\v3avs_types\V3Color.pb.c</FilePath>
-            </File>
-            <File>
-              <FileName>V3ColorTemperatureInKelvin.pb.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\..\..\core\generated\v3avs_types\V3ColorTemperatureInKelvin.pb.c</FilePath>
-            </File>
-            <File>
-              <FileName>V3Connectivity.pb.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\..\..\core\generated\v3avs_types\V3Connectivity.pb.c</FilePath>
-            </File>
-            <File>
-              <FileName>V3Count.pb.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\..\..\core\generated\v3avs_types\V3Count.pb.c</FilePath>
-            </File>
-            <File>
-              <FileName>V3DateTime.pb.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\..\..\core\generated\v3avs_types\V3DateTime.pb.c</FilePath>
-            </File>
-            <File>
-              <FileName>V3Duration.pb.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\..\..\core\generated\v3avs_types\V3Duration.pb.c</FilePath>
-            </File>
-            <File>
-              <FileName>V3DeviceState.pb.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\..\..\core\generated\v3avs_types\V3DeviceState.pb.c</FilePath>
-            </File>
-            <File>
-              <FileName>V3EnumeratedPowerLevel.pb.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\..\..\core\generated\v3avs_types\V3EnumeratedPowerLevel.pb.c</FilePath>
-            </File>
-            <File>
-              <FileName>V3FoodItem.pb.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\..\..\core\generated\v3avs_types\V3FoodItem.pb.c</FilePath>
-            </File>
-            <File>
-              <FileName>V3IntegralPowerLevel.pb.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\..\..\core\generated\v3avs_types\V3IntegralPowerLevel.pb.c</FilePath>
-            </File>
-            <File>
-              <FileName>V3InventoryConsumed.pb.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\..\..\core\generated\v3avs_types\V3InventoryConsumed.pb.c</FilePath>
-            </File>
-            <File>
-              <FileName>V3InventoryCount.pb.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\..\..\core\generated\v3avs_types\V3InventoryCount.pb.c</FilePath>
-            </File>
-            <File>
-              <FileName>V3InventoryReplaced.pb.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\..\..\core\generated\v3avs_types\V3InventoryReplaced.pb.c</FilePath>
-            </File>
-            <File>
-              <FileName>V3ItemQuantity.pb.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\..\..\core\generated\v3avs_types\V3ItemQuantity.pb.c</FilePath>
-            </File>
-            <File>
-              <FileName>V3Length.pb.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\..\..\core\generated\v3avs_types\V3Length.pb.c</FilePath>
-            </File>
-            <File>
-              <FileName>V3Level.pb.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\..\..\core\generated\v3avs_types\V3Level.pb.c</FilePath>
-            </File>
-            <File>
-              <FileName>V3Mode.pb.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\..\..\core\generated\v3avs_types\V3Mode.pb.c</FilePath>
-            </File>
-            <File>
-              <FileName>V3ModeDelta.pb.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\..\..\core\generated\v3avs_types\V3ModeDelta.pb.c</FilePath>
-            </File>
-            <File>
-              <FileName>V3Percentage.pb.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\..\..\core\generated\v3avs_types\V3Percentage.pb.c</FilePath>
-            </File>
-            <File>
-              <FileName>V3PercentageDelta.pb.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\..\..\core\generated\v3avs_types\V3PercentageDelta.pb.c</FilePath>
-            </File>
-            <File>
-              <FileName>V3PowerState.pb.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\..\..\core\generated\v3avs_types\V3PowerState.pb.c</FilePath>
-            </File>
-            <File>
-              <FileName>V3PresetName.pb.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\..\..\core\generated\v3avs_types\V3PresetName.pb.c</FilePath>
-            </File>
-            <File>
-              <FileName>V3Range.pb.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\..\..\core\generated\v3avs_types\V3Range.pb.c</FilePath>
-            </File>
-            <File>
-              <FileName>V3RangeDelta.pb.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\..\..\core\generated\v3avs_types\V3RangeDelta.pb.c</FilePath>
-            </File>
-            <File>
-              <FileName>V3RequiredInteraction.pb.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\..\..\core\generated\v3avs_types\V3RequiredInteraction.pb.c</FilePath>
-            </File>
-            <File>
-              <FileName>V3Temperature.pb.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\..\..\core\generated\v3avs_types\V3Temperature.pb.c</FilePath>
-            </File>
-            <File>
-              <FileName>V3TimeInterval.pb.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\..\..\core\generated\v3avs_types\V3TimeInterval.pb.c</FilePath>
-            </File>
-            <File>
-              <FileName>V3ToggleState.pb.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\..\..\core\generated\v3avs_types\V3ToggleState.pb.c</FilePath>
-            </File>
-            <File>
-              <FileName>V3Volume.pb.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\..\..\core\generated\v3avs_types\V3Volume.pb.c</FilePath>
-            </File>
-            <File>
-              <FileName>V3Weight.pb.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\..\..\core\generated\v3avs_types\V3Weight.pb.c</FilePath>
+              <FilePath>..\..\..\..\..\..\..\core\generated\acp.pb.c</FilePath>
             </File>
           </Files>
         </Group>

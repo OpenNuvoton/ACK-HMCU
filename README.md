@@ -1,14 +1,22 @@
 # ACK-HMCU
 
+## Notice
+Before using this porting, you should attend Amazon recommendations. For more details, please refer below hyperlink.
+https://developer.amazon.com/en-US/docs/alexa/ack/ack-device-sdk.html#ack-sdk-4
+
 ## Merge
-Please download ACK_Device_SDK_3.2 package from Amazon offical website.<br>
-Then, copy 'numicro_m031' folder in this repository into <Path-to-ACK_Device_SDK>\user\platform\.
+### For ACK_HMCU_SDK3 user:
+Please download ACK_Device_SDK_3.2 package from ACK developer resource.<br>
+Then, make sure current branch is 'master' and copy 'numicro_m031' folder in this repository into <Path-to-ACK_Device_SDK3.2>\user\platform\.
+### For ACK_HMCU_SDK4 user:
+Please download ACK_Device_SDK_4 package from ACK developer resource.<br>
+Then, switch to 'For_SDK4' branch and copy 'numicro_m031' folder in this repository into <Path-to-ACK_Device_SDK4>\user\platform\.
 
 ## Document
 * [ACK HMCU application guide][1]
  
 ## Resources
-* [Download ACK_Device_SDK_3.2][2]
+* [Download ACK_Device_SDK][2]
 
 ### Demonstration Video Clips
 [![ACK Module Device Registration using Alexa APP](https://img.youtube.com/vi/3sWmSnNBBrk/0.jpg)](https://youtu.be/3sWmSnNBBrk)
