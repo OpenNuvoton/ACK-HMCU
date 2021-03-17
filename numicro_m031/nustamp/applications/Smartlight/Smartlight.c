@@ -27,7 +27,7 @@
 #include <stdint.h>
 
 // Component name used for logs originated from this file.
-#define LOG_COMPONENT_NAME "YanKon_BR30"
+#define LOG_COMPONENT_NAME "NUSTAMP"
 
 // Forward declarations.
 bool AddPowerProperty(uint32_t propertyOrdinal, unsigned propertyFlags);
@@ -125,6 +125,7 @@ const int i32MaxColTempMapTblSize  = sizeof(BR30_ColTempMapTbl) / sizeof(BR30_Co
 
 // Global variables.
 uint32_t g_previousTick = 0;   // Previous Tick (used by timers logic).
+uint32_t g_timerGap = 0;   // Milliseconds since the last loop.
 uint8_t g_brightness = MAXIMUM_BRIGHTNESS; // Brightness.
 uint8_t g_blinkingMode = SPEED_MODE_NONE;    // Blinking mode.
 uint8_t g_timerMode = TIMER_MODE_NONE;   // Timer mode.
@@ -136,7 +137,7 @@ int32_t g_blinkingCountdown = 0; // Blinking countdown.
 bool g_blinkingPower = false;     // Indicates power for blinking mode.
 
 // Called once, for one-time initialization.
-void setup()
+void setup(void)
 {
     // Initialize ACK Host MCU Implementation Core.
     ACK_Initialize();
@@ -146,7 +147,7 @@ void setup()
 }
 
 // Called over and over, for main processing.
-void loop()
+void loop(void)
 {
     ACK_Process();
 
@@ -154,9 +155,10 @@ void loop()
     CheckShutoffTimer();
     CheckBlinkingMode();
 
-    // In order to work with timers, we save time of the last time timers were called.
-    // This line must be after all timer logic is called.
-    g_previousTick = ACKPlatform_TickCount();
+    // In order to work with timers, we save time of the previous tick and calculate the difference.
+    uint32_t newTick = ACKPlatform_TickCount();
+    g_timerGap = newTick - g_previousTick;
+    g_previousTick = newTick;
 }
 
 // We designate the device "in use" if (simulated) power is on.
@@ -311,7 +313,7 @@ void ACKUser_OnBrightnessControllerDirective(int32_t correlationId, bool isDelta
         changedPropertiesBits);
 }
 
-ACKPropertiesBits_t SetLightToOnIfOff()
+ACKPropertiesBits_t SetLightToOnIfOff(void)
 {
     if (!g_power)
     {
@@ -455,15 +457,8 @@ void ProcessSetBlinkDirective(int32_t correlationId, bool value)
         changedPropertiesBits);
 }
 
-// Returns milliseconds since the last loop.
-// The returned value is used to decrease the countdowns.
-uint32_t TimerGap(void)
-{
-    return ACKPlatform_TickCount() - g_previousTick;
-}
-
 // Shutoff timer will shut the device off, when timer is elapsed.
-void CheckShutoffTimer()
+void CheckShutoffTimer(void)
 {
     ACKPropertiesBits_t changedPropertiesBits = 0;
 
@@ -485,19 +480,19 @@ void CheckShutoffTimer()
         Hardware_TurnLightOff();
 
         ACK_SendChangeReport(
-            v3avs_capabilities_V3Alexa_Cause_CauseType_RULE_TRIGGER,
+            ack_alexa_change_report_cause_type_rule_trigger,
             c_lightPropertiesBits,
             changedPropertiesBits);
     }
     else
     {
-        g_timerModeCountdown -= TimerGap();
+        g_timerModeCountdown -= g_timerGap;
     }
 }
 
 // Blinking timer powers the LED on/off each time the countdown is reached.
 // Once reached, countdown is reset.
-void CheckBlinkingMode()
+void CheckBlinkingMode(void)
 {
     if (g_blinkingMode == SPEED_MODE_NONE)
     {
@@ -536,7 +531,7 @@ void CheckBlinkingMode()
     }
     else
     {
-        g_blinkingCountdown -= TimerGap();
+        g_blinkingCountdown -= g_timerGap;
     }
 }
 
@@ -549,8 +544,8 @@ void ACKUser_OnReportStateDirective(int32_t correlationId)
 
 bool AddPowerProperty(uint32_t propertyOrdinal, unsigned propertyFlags)
 {
-    // Populate metadata about the property.
-    // Leave the time-of-sample-field 0 to cause the current time to be sent.
+    // Populate metadata about the property. 
+    // Leave the time-of-sample-field 0 to cause the current time to be sent. 
     // Set the error margin to 10 milliseconds for illustrative purposes.
     ACKStateCommon_t common = { 0, 10, propertyFlags };
     ACKError_t error;
@@ -568,8 +563,8 @@ bool AddPowerProperty(uint32_t propertyOrdinal, unsigned propertyFlags)
 
 bool AddLightBrightnessProperty(uint32_t propertyOrdinal, unsigned propertyFlags)
 {
-    // Populate metadata about the property.
-    // Leave the time-of-sample-field 0 to cause the current time to be sent.
+    // Populate metadata about the property. 
+    // Leave the time-of-sample-field 0 to cause the current time to be sent. 
     // Set the error margin to 10 milliseconds for illustrative purposes.
     ACKStateCommon_t common = { 0, 10, propertyFlags };
     ACKError_t error;
@@ -587,8 +582,8 @@ bool AddLightBrightnessProperty(uint32_t propertyOrdinal, unsigned propertyFlags
 
 bool AddLightTimerProperty(uint32_t propertyOrdinal, unsigned propertyFlags)
 {
-    // Populate metadata about the property.
-    // Leave the time-of-sample-field 0 to cause the current time to be sent.
+    // Populate metadata about the property. 
+    // Leave the time-of-sample-field 0 to cause the current time to be sent. 
     // Set the error margin to 10 milliseconds for illustrative purposes.
     ACKStateCommon_t common = { 0, 10, propertyFlags };
     ACKError_t error;
@@ -606,8 +601,8 @@ bool AddLightTimerProperty(uint32_t propertyOrdinal, unsigned propertyFlags)
 
 bool AddLightToggleProperty(uint32_t propertyOrdinal, unsigned propertyFlags)
 {
-    // Populate metadata about the property.
-    // Leave the time-of-sample-field 0 to cause the current time to be sent.
+    // Populate metadata about the property. 
+    // Leave the time-of-sample-field 0 to cause the current time to be sent. 
     // Set the error margin to 10 milliseconds for illustrative purposes.
     ACKStateCommon_t common = { 0, 10, propertyFlags };
     ACKError_t error;

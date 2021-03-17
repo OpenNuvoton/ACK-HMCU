@@ -84,22 +84,15 @@ uint32_t ACKPlatform_CalculateCrc32(const void *pInput, size_t length)
  * typically (but not mandatorily) a UART to which a serial monitor is attached.
  * Your implementation should format the message and send it to the platform-specific output.
  * */
-void ACKPlatform_DebugPrint(const char *pMessage, ...)
+void ACKPlatform_DebugPrint(const char *pMessage)
 {
-    char buffer[250];
+    size_t count;
 
-    va_list argptr;
-    va_start(argptr, pMessage);
-    int count = vsnprintf(buffer, sizeof(buffer) - 2, pMessage, argptr);
-    va_end(argptr);
+    count = strlen(pMessage);
 
     if (count >= 0)
     {
-        buffer[count] = '\r';
-        buffer[count + 1] = '\n';
-        count += 2;
-
-        HAL_UART_Send(ACK_DEBUG_PRINT_UART, buffer, count, 1000);
+        HAL_UART_Send(ACK_DEBUG_PRINT_UART, pMessage, count, 1000);
     }
 }
 
