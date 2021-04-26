@@ -10,13 +10,14 @@ Please download ACK_Device_SDK_3.2 package from ACK developer resource.<br>
 Then, make sure current branch is 'SDK3' and copy 'numicro_m031' folder in this repository into <Path-to-ACK_Device_SDK3.2>\user\platform\.
 ### For ACK_HMCU_SDK4 user:
 Please download ACK_Device_SDK_4 package from ACK developer resource.<br>
-Then, switch to 'master' branch and copy 'numicro_m031' folder in this repository into <Path-to-ACK_Device_SDK4>\user\platform\.
+Then, switch to 'master' branch and copy 'numicro_m031' or 'numicro_m4521' folder in this repository into <Path-to-ACK_Device_SDK4>\user\platform\.
 
 ## Document
-* [ACK HMCU application guide][1]
- 
+* [ACK HMCU NuMaker-M032SE Quick-Start guide](https://raw.githubusercontent.com/OpenNuvoton/ACK-HMCU/master/numicro_m031/docs/Amazon%20ACK%20HMCU%20on%20NuMaker-M032SE.pdf)
+* [ACK HMCU NuTiny-M4521S Quick-Start guide](https://raw.githubusercontent.com/OpenNuvoton/ACK-HMCU/master/numicro_m4521/docs/Amazon%20ACK%20HMCU%20on%20NuTiny-M4521S.pdf)
+
 ## Resources
-* [Download ACK_Device_SDK][2]
+* [Download ACK_Device_SDK](https://developer.amazon.com/alexa/console/ack/resources)
 
 ### Demonstration Video Clips
 [![ACK Module Device Registration using Alexa APP](https://img.youtube.com/vi/3sWmSnNBBrk/0.jpg)](https://youtu.be/3sWmSnNBBrk)
@@ -26,7 +27,3 @@ Then, switch to 'master' branch and copy 'numicro_m031' folder in this repositor
 [![Echo Dot ACK HMCU Lamp Board.](https://img.youtube.com/vi/Xd7ywCq9kpw/0.jpg)](https://www.youtube.com/watch?v=Xd7ywCq9kpw)
 
 [![Short Responding Time.](https://img.youtube.com/vi/bvP7VRnRItU/0.jpg)](https://www.youtube.com/watch?v=bvP7VRnRItU)
-
-
-  [1]: https://raw.githubusercontent.com/OpenNuvoton/ACK-HMCU/master/numicro_m031/docs/Amazon%20ACK%20HMCU%20on%20NuMaker-M032SE.pdf
-  [2]: https://developer.amazon.com/alexa/console/ack/resources
