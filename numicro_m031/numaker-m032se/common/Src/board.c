@@ -157,6 +157,8 @@ void crc32dev_deinit(void)
 
 void peripheral_init(void)
 {
+    HAL_SYS_TICK_Init(DEF_SYSTICK_INT_PRIORITY, 1000);
+
     uartdev_init();
     crc32dev_init();
     gpiodev_init();
@@ -169,6 +171,8 @@ void peripheral_deinit(void)
     crc32dev_deinit();
     uartdev_deinit();
     pwmdev_deinit();
+
+    HAL_SYS_TICK_Deinit();
 }
 
 void mcu_init(void)

@@ -19,10 +19,10 @@ extern "C" {
 
 typedef enum
 {
-    eCRCMode_CCITT    =   CRC_CCITT,
-    eCRCMode_CRC8     =   CRC_8,
-    eCRCMode_CRC16    =   CRC_16,
-    eCRCMode_CRC32    =   CRC_32
+    eCRCMode_CCITT    = (int)CRC_CCITT,
+    eCRCMode_CRC8     = (int)CRC_8,
+    eCRCMode_CRC16    = (int)CRC_16,
+    eCRCMode_CRC32    = (int)CRC_32
 } E_CRC_MODE;
 
 typedef enum

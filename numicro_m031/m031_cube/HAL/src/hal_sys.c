@@ -9,8 +9,6 @@
 
 #include <hal_sys.h>
 
-#define DEF_SYSTICK_INT_PRIORITY    0
-
 static volatile uint32_t u32Tick = 0;
 
 void HAL_SYS_NVIC_SetPriority(IRQn_Type IRQn, uint32_t PreemptPriority, uint32_t SubPriority)
@@ -91,7 +89,6 @@ HAL_Status HAL_SYS_TICK_Init(uint32_t TickPriority, int32_t i32MiliSeconds)
         return HAL_ERROR;
     CLK_EnableSysTick(CLK_CLKSEL0_STCLKSEL_HCLK, CLK_GetHCLKFreq() / i32MiliSeconds);
     HAL_SYS_NVIC_SetPriority(SysTick_IRQn, TickPriority, 0U);
-    HAL_SYS_NVIC_EnableIRQ(SysTick_IRQn);
     return HAL_OK;
 }
 
@@ -187,8 +184,6 @@ HAL_Status HAL_SYS_Init(void)
     /* Update System Core Clock */
     /* User can use SystemCoreClockUpdate() to calculate SystemCoreClock. */
     SystemCoreClockUpdate();
-
-    HAL_SYS_TICK_Init(DEF_SYSTICK_INT_PRIORITY, 1000);
 
     /* Lock protected registers */
     SYS_LockReg();

@@ -73,7 +73,7 @@ static void platform_pwmout_config(S_PWMDev *psPwmDev, int start)
 static int32_t platform_pwmout_init(S_PWMDev *psPwmDev)
 {
     struct nu_modinit_s *modinit = NULL;
-    if (psPwmDev->pwm != (PWMName) pinmap_peripheral(psPwmDev->pin, PinMap_PWM))
+    if (psPwmDev->pwm != (PWMName) pinmap_peripheral(psPwmDev->pin, psPwmDev->pwm, PinMap_PWM))
         goto exit_platform_pwmout_init;
 
     modinit = (struct nu_modinit_s *) get_modinit(psPwmDev->pwm, pwm_modinit_tab);

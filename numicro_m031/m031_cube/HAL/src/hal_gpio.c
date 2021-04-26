@@ -427,7 +427,6 @@ int32_t HAL_GPIO_Initialize(S_GPIODev *dev)
 
     default:
         goto exit_hal_gpio_initialize;
-        break;
     } //switch
 
     return HAL_OK;

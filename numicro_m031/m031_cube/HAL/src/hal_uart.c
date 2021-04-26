@@ -19,7 +19,7 @@ struct nu_uart_var
 #if DEVICE_UART_TX_DMA
     uint8_t         pdma_perp_tx;
     int8_t          pdma_chanid_tx;
-    uint32_t                i32UartDmaTxDone;
+    uint32_t        i32UartDmaTxDone;
 #endif
 #if DEVICE_UART_RX_DMA
     uint8_t         pdma_perp_rx;
@@ -252,8 +252,6 @@ static void uart_irq(struct nu_uart_var *psNuUartVar)
     }
 
     // FIXME: Ignore all other interrupt flags. Clear them. Otherwise, program will get stuck in interrupt.
-    //uart_base->INTSTS = uart_base->INTSTS;
-    //uart_base->FIFOSTS = uart_base->FIFOSTS;
     uart_base->INTSTS = u32INTSTS;
     uart_base->FIFOSTS = u32FIFOSTS;
 
@@ -341,7 +339,6 @@ int32_t HAL_UART_SetFlowControl(S_UARTDev *psUartDev, E_UART_FLOW_CONTROL hufc_t
 
     default:
         goto exit_hal_uart_setflowcontol;
-        break;
     }
 
     return HAL_OK;
@@ -393,7 +390,6 @@ int32_t HAL_UART_SetLineConf(S_UARTDev *psUartDev, E_UART_DATA_WIDTH udw, E_UART
 
     default:
         goto exit_hal_uart_setlineconf;
-        break;
     }
 
     // Check stop bit parameters
@@ -409,7 +405,6 @@ int32_t HAL_UART_SetLineConf(S_UARTDev *psUartDev, E_UART_DATA_WIDTH udw, E_UART
 
     default:
         goto exit_hal_uart_setlineconf;
-        break;
     }
 
     // Check parity parameters
@@ -429,7 +424,6 @@ int32_t HAL_UART_SetLineConf(S_UARTDev *psUartDev, E_UART_DATA_WIDTH udw, E_UART
 
     default:
         goto exit_hal_uart_setlineconf;
-        break;
     }
 
     // Dont change baudrate setting.
@@ -460,8 +454,8 @@ int32_t HAL_UART_Initialize(S_UARTDev *psUartDev)
         goto exit_hal_uart_initialize;
 
     // found UARTNAME from the two PinName.
-    uint32_t uart_tx = pinmap_peripheral(psUartDev->pin_tx, PinMap_UART_TX);
-    uint32_t uart_rx = pinmap_peripheral(psUartDev->pin_rx, PinMap_UART_RX);
+    uint32_t uart_tx = pinmap_peripheral(psUartDev->pin_tx, psUartDev->uart, PinMap_UART_TX);
+    uint32_t uart_rx = pinmap_peripheral(psUartDev->pin_rx, psUartDev->uart, PinMap_UART_RX);
     uint32_t uart_data = NC;
 
     // Get final UARTName
@@ -475,10 +469,10 @@ int32_t HAL_UART_Initialize(S_UARTDev *psUartDev)
     uint32_t uart_flowctl = NC;
 
     if (psUartDev->pin_cts != NC)
-        uart_cts = pinmap_peripheral(psUartDev->pin_cts, PinMap_UART_CTS);
+        uart_cts = pinmap_peripheral(psUartDev->pin_cts, psUartDev->uart, PinMap_UART_CTS);
 
     if (psUartDev->pin_rts != NC)
-        uart_rts = pinmap_peripheral(psUartDev->pin_rts, PinMap_UART_RTS);
+        uart_rts = pinmap_peripheral(psUartDev->pin_rts, psUartDev->uart, PinMap_UART_RTS);
 
     if ((psUartDev->pin_cts != NC) || (psUartDev->pin_rts != NC))
     {
@@ -695,15 +689,6 @@ static int32_t platform_uart_write(struct nu_uart_var *var, uint8_t pu8TxBuf[], 
 
         if (var->i32UartDmaTxDone)
             tx_count = u32WriteBytes;
-
-        //if (krhino_sem_take(&var->fifo_tx_sem, krhino_ms_to_ticks(timeout)) == 0)    //Timeout?
-        //{
-        //    tx_count = u32WriteBytes;
-        //    UART_DISABLE_INT(uart_base, UART_INTEN_TXPDMAEN_Msk);  // Stop DMA transfer
-        //}
-
-        // printf("DMA->%d done\r\n", u32WriteBytes);
-
     }
 
 
@@ -732,7 +717,6 @@ int32_t HAL_UART_Send(S_UARTDev *psUartDev, const void *data, uint32_t size, uin
 {
     struct nu_modinit_s *modinit;
     struct nu_uart_var *var;
-    UART_T *pUart;
     int32_t ret = -1;
 
     if (!psUartDev)
@@ -747,8 +731,6 @@ int32_t HAL_UART_Send(S_UARTDev *psUartDev, const void *data, uint32_t size, uin
 
     /* Initialized? */
     if (!var->ref_cnt) goto exit_hal_uart_send;
-
-    pUart = (UART_T *) NU_MODBASE(psUartDev->uart);
 
     if (platform_uart_write(var, (uint8_t *)data, size, timeout) == size)
         ret = 0;
@@ -836,7 +818,6 @@ void UART_DisableRxTimeout(UART_T *uart)
 static int32_t platform_uart_read(struct nu_uart_var *var, uint8_t pu8RxBuf[], uint32_t u32ReadBytes, uint32_t timeout)
 {
     S_UARTDev *psUartDev = var->dev;
-    UART_T *uart_base = (UART_T *) NU_MODBASE(psUartDev->uart);
     nu_rbuf_t *prbuf = &var->fifo_rbuf_rx;
     uint32_t rx_count = 0;
     size_t rev_size = 0;
@@ -864,7 +845,7 @@ static int32_t platform_uart_read(struct nu_uart_var *var, uint8_t pu8RxBuf[], u
         else
             break;
     }
-    //platform_dump_buffer(pu8RxBuf, rx_count, 1);
+
     return rx_count;
 }
 
@@ -901,7 +882,7 @@ int32_t HAL_UART_Recv(S_UARTDev *psUartDev, void *data, uint32_t expect_size, ui
 
     //printf("[%06d]before-%d.\r\n", (unsigned)HAL_SYS_TICK_Get(), timeout );
     *recv_size = platform_uart_read(var, (uint8_t *)data, expect_size, timeout);
-    //printf("[%06d]after-%d.\r\n", (unsigned)HAL_SYS_TICK_Get(), timeout );
+    //printf("[%06d]after-%d. %d\r\n", (unsigned)HAL_SYS_TICK_Get(), timeout, *recv_size );
 
     return HAL_OK;
 

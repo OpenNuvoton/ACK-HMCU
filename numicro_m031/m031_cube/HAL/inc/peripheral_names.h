@@ -63,19 +63,6 @@ typedef enum
 
 typedef enum
 {
-    SPI_0 = (int) NU_MODNAME(SPI0_BASE, 0, 0)
-} SPIName;
-#define SPI_MAX     1
-
-typedef enum
-{
-    I2C_0 = (int) NU_MODNAME(I2C0_BASE, 0, 0),
-    I2C_1 = (int) NU_MODNAME(I2C1_BASE, 1, 0)
-} I2CName;
-#define I2C_MAX     2
-
-typedef enum
-{
     PWM_0_0 = (int) NU_MODNAME(PWM0_BASE, 0, 0),
     PWM_0_1 = (int) NU_MODNAME(PWM0_BASE, 0, 1),
     PWM_0_2 = (int) NU_MODNAME(PWM0_BASE, 0, 2),
@@ -94,13 +81,6 @@ typedef enum
 
 typedef enum
 {
-    TIMER_0  = (int) NU_MODNAME(TIMER0_BASE, 0, 0),
-    TIMER_1  = (int) NU_MODNAME(TIMER2_BASE, 1, 0),
-} TIMERName;
-#define TIMER_MAX   2
-
-typedef enum
-{
     DMA_0 = (int) NU_MODNAME(PDMA_BASE, 0, 0)
 } DMAName;
 #define DMA_MAX     1
@@ -110,13 +90,6 @@ typedef enum
     RTC_0 = (int) NU_MODNAME(RTC_BASE, 0, 0)
 } RTCName;
 #define RTC_MAX     1
-
-typedef enum
-{
-    QSPI_0 = (int) NU_MODNAME(QSPI0_BASE, 0, 0),
-} QSPIName;
-#define QSPI_MAX        1
-
 
 typedef enum
 {

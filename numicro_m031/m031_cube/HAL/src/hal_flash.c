@@ -27,7 +27,6 @@ void HAL_FLASH_Unlock(void)
 
 HAL_Status HAL_FLASH_Erase(uint32_t u32SrcAddr, uint32_t u32LengthInBytes)
 {
-    HAL_Status ret = HAL_ERROR;
     int i = 0;
     int page_num;
 
@@ -41,7 +40,7 @@ HAL_Status HAL_FLASH_Erase(uint32_t u32SrcAddr, uint32_t u32LengthInBytes)
 
     for (i = 0; i < page_num; i++)
     {
-        if ((ret = FMC_Erase(u32SrcAddr + i * FLASH_PAGE_SIZE)) < 0)
+        if (FMC_Erase(u32SrcAddr + i * FLASH_PAGE_SIZE) < 0)
             break;
     }
 
@@ -52,7 +51,7 @@ HAL_Status HAL_FLASH_Erase(uint32_t u32SrcAddr, uint32_t u32LengthInBytes)
 
 exit_hal_flash_erase:
 
-    return ret;
+    return HAL_ERROR;
 }
 
 int HAL_FLASH_Read(const void *pvDstBuf, uint32_t *pu32SrcAddr, uint32_t u32InBufferLen)
@@ -79,14 +78,14 @@ typedef enum
 // u32StartAddr must be a aligned-word address
 int HAL_FLASH_Write(uint32_t u32StartAddr, uint32_t *pu32Data, uint32_t u32LenBytes)
 {
-    int i;
-    int ret = HAL_ERROR;
+    int ret = 0;
     uint32_t *pu32SrcAddr;
     uint32_t u32DstAddr;
 
     int remaining, len;
 
-    if ((u32StartAddr % sizeof(uint32_t)) > 0) return ret;
+    if ((u32StartAddr % sizeof(uint32_t)) > 0)
+        goto exit_hal_flash_write;
 
     // Write word or 2word to flash.
     remaining = u32LenBytes;
@@ -178,7 +177,7 @@ static int FLASH_Update(uint32_t u32StartAddr, uint32_t *pu32Data, uint32_t u32L
             memcpy((void *)pu32PageCache, (void *) fl_addr, i32UpdateLen);
         }
         /* Update the cache from the source */
-        memcpy((void *)pu32PageCache + fl_offset, src_addr, len);
+        memcpy((void *)((uint32_t)pu32PageCache + fl_offset), src_addr, len);
 
         if (i32DoErase)
         {
@@ -205,7 +204,7 @@ static int FLASH_Update(uint32_t u32StartAddr, uint32_t *pu32Data, uint32_t u32L
 
 exit_flash_update:
 
-    return HAL_ERROR;
+    return 0;
 }
 
 HAL_Status HAL_FLASH_CheckCRCValue(uint32_t u32SrcData, uint32_t u32LenBytes, uint32_t u32CRCValue)

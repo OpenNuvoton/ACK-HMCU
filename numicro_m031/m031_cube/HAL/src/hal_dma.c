@@ -315,6 +315,8 @@ void PDMA_IRQHandler(void)
     uint32_t tdsts  = PDMA_GET_TD_STS(pdma);
     uint32_t reqto  = intsts & (PDMA_INTSTS_REQTOF0_Msk | PDMA_INTSTS_REQTOF1_Msk);
     uint32_t reqto_ch = ((reqto & PDMA_INTSTS_REQTOF0_Msk) ? (1 << 0) : 0x0) | ((reqto & PDMA_INTSTS_REQTOF1_Msk) ? (1 << 1) : 0x0);
+    int i;
+    int allch_sts = (reqto_ch | tdsts | abtsts);
 
     // Abort
     if (intsts & PDMA_INTSTS_ABTIF_Msk)
@@ -337,10 +339,7 @@ void PDMA_IRQHandler(void)
         pdma->INTSTS = reqto;
     }
 
-    int i;
-    int allch_sts = (reqto_ch | tdsts | abtsts);
-
-    for (i = 0; i < NU_PDMA_CH_MAX; i++)
+    while ((i = nu_ctz(allch_sts)) < NU_PDMA_CH_MAX)
     {
         int ch_mask     = (1 << i) ;
 
@@ -368,6 +367,10 @@ void PDMA_IRQHandler(void)
                     HAL_DMA_FillTimeout(pdma, i, dma_chn_arr[i - NU_PDMA_CH_Pos].timeout_us);
             }
         } //if ( allch_sts & ch_mask )
+
+        // Clear the served bit.
+        allch_sts &= ~ch_mask;
+
     } //for
 }
 
