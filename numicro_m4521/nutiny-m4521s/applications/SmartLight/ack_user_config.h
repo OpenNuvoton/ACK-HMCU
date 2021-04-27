@@ -23,8 +23,8 @@
 #define __ACK_USER_CONFIG_H__
 
 // Debug print behavior. Leave ACK_DEBUG_PRINT_LEVEL undefined for no debug printing.
-#define ACK_DEBUG_PRINT_LEVEL ACK_DEBUG_PRINT_LEVEL_INFO
-//#define ACK_DEBUG_PRINT_LEVEL ACK_DEBUG_PRINT_LEVEL_CRITICAL
+//#define ACK_DEBUG_PRINT_LEVEL ACK_DEBUG_PRINT_LEVEL_INFO
+#define ACK_DEBUG_PRINT_LEVEL ACK_DEBUG_PRINT_LEVEL_CRITICAL
 
 // Size of buffer from which memory blocks are allocated during processing.
 #define ACK_MEMORY_POOL_SIZE 1024

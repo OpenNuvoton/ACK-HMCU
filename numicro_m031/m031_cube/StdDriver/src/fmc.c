@@ -56,8 +56,7 @@ int32_t FMC_Erase(uint32_t u32PageAddr)
     {
         ret = FMC_Erase_SPROM();
     }
-
-    if (ret == 0)
+    else
     {
         FMC->ISPCMD = FMC_ISPCMD_PAGE_ERASE;
         FMC->ISPADDR = u32PageAddr;
@@ -328,7 +327,7 @@ int32_t FMC_WriteConfig(uint32_t u32Config[], uint32_t u32Count)
 
         if (FMC_Read(FMC_CONFIG_BASE + i * 4u) != u32Config[i])
         {
-            ret = 1;
+            ret = -1;
         }
     }
 
@@ -384,9 +383,30 @@ uint32_t  FMC_GetChkSum(uint32_t u32addr, uint32_t u32count)
  *
  * @details  Run ISP check all one command to check specify area is all one or not.
  */
+#define FMC_APROM_BANK1_BASE    (0x40000)
+#define FMC_CHECKALLONE_UNIT    (512)
 uint32_t FMC_CheckAllOne(uint32_t u32addr, uint32_t u32count)
 {
     uint32_t ret = READ_ALLONE_CMD_FAIL;
+
+    /** Workaround solution for M031 with 512KB Flash uses FMC Read command instead of FMC All-One-Verification command to
+      * check the Flash content from 0x40000 to 0x401FF.
+      */
+    if (u32addr == FMC_APROM_BANK1_BASE)
+    {
+        uint32_t i;
+        u32count = u32count - FMC_CHECKALLONE_UNIT;
+        for (i = FMC_APROM_BANK1_BASE; i < (FMC_APROM_BANK1_BASE + FMC_CHECKALLONE_UNIT); i = i + 4)
+        {
+            if (FMC_Read(i) != 0xFFFFFFFF)
+                return READ_ALLONE_NOT;
+        }
+
+        if (u32count == 0)
+            return READ_ALLONE_YES;
+        else
+            u32addr = u32addr + FMC_CHECKALLONE_UNIT;
+    }
 
     FMC->ISPSTS = 0x80UL; /* clear check all one bit */
 

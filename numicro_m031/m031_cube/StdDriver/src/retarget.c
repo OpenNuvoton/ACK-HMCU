@@ -9,7 +9,6 @@
  * SPDX-License-Identifier: Apache-2.0
  * @copyright (C) 2017 Nuvoton Technology Corp. All rights reserved.
  ******************************************************************************/
-
 #include <stdio.h>
 #include "NuMicro.h"
 
@@ -34,12 +33,12 @@
 /* Global variables                                                                                        */
 /*---------------------------------------------------------------------------------------------------------*/
 #if !(defined(__ICCARM__) && (__VER__ >= 6010000))
-#if (__ARMCC_VERSION < 6040000)
+# if (__ARMCC_VERSION < 6040000)
 struct __FILE
 {
     int handle; /* Add whatever you need here */
 };
-#endif
+# endif
 #elif(__VER__ >= 8000000)
 struct __FILE
 {
@@ -480,6 +479,7 @@ static void SendChar_ToUART(int ch)
                 i32Head = i32Tmp;
             }
         }
+
         i32Tmp = i32Head + 1;
         if (i32Tmp > BUF_SIZE) i32Tmp = 0;
         if (i32Tmp != i32Tail)
@@ -683,7 +683,7 @@ int fputc(int ch, FILE *stream)
     return ch;
 }
 
-#if defined ( __GNUC__ )
+#if defined (__GNUC__) && !defined(__ARMCC_VERSION)
 
 int _write(int fd, char *ptr, int len)
 {
@@ -693,13 +693,14 @@ int _write(int fd, char *ptr, int len)
     {
         while (DEBUG_PORT->FIFOSTS & UART_FIFOSTS_TXFULL_Msk);
 
-        DEBUG_PORT->DAT = *ptr++;
-
         if (*ptr == '\n')
         {
-            while (DEBUG_PORT->FIFOSTS & UART_FIFOSTS_TXFULL_Msk);
             DEBUG_PORT->DAT = '\r';
+            while (DEBUG_PORT->FIFOSTS & UART_FIFOSTS_TXFULL_Msk);
         }
+
+        DEBUG_PORT->DAT = *ptr++;
+
     }
     return len;
 }

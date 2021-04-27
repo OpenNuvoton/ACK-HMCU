@@ -6,10 +6,9 @@
  * @brief    M031 Series System Manager (SYS) Driver Source File
  *
  * @note
- * SPDX-License-Identifier: Apache-2.0
  * Copyright (C) 2018 Nuvoton Technology Corp. All rights reserved.
-*****************************************************************************/
-
+ * SPDX-License-Identifier: Apache-2.0
+ *****************************************************************************/
 #include "M031Series.h"
 /** @addtogroup Standard_Driver Standard Driver
   @{

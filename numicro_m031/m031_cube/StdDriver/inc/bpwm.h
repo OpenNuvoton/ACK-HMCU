@@ -5,9 +5,8 @@
  * $Date: 18/06/07 3:47p $
  * @brief    M031 series BPWM driver header file
  *
- * @note
  * SPDX-License-Identifier: Apache-2.0
- * Copyright (C) 2018 Nuvoton Technology Corp. All rights reserved.
+ * @copyright (C) 2018 Nuvoton Technology Corp. All rights reserved.
  *****************************************************************************/
 #ifndef __BPWM_H__
 #define __BPWM_H__

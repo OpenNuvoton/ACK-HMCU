@@ -5,9 +5,8 @@
  * $Date: 18/06/07 3:47p $
  * @brief    M031 series PWM driver header file
  *
- * @note
  * SPDX-License-Identifier: Apache-2.0
- * Copyright (C) 2018 Nuvoton Technology Corp. All rights reserved.
+ * @copyright (C) 2018 Nuvoton Technology Corp. All rights reserved.
  *****************************************************************************/
 #ifndef __PWM_H__
 #define __PWM_H__
@@ -291,7 +290,7 @@ extern "C"
  *       The clock of PWM counter is divided by (u32Prescaler + 1).
  * \hideinitializer
  */
-#define PWM_GET_PRESCALER(pwm, u32ChannelNum) (*(__IO uint32_t *) (&((pwm)->CLKPSC0_1) + ((u32ChannelNum) >> 1)))
+#define PWM_GET_PRESCALER(pwm, u32ChannelNum) (*(__IO uint32_t *) (&((pwm)->CLKPSC[0]) + ((u32ChannelNum) >> 1)))
 
 /**
  * @brief This macro set the comparator of the selected channel

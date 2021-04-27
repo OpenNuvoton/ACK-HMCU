@@ -8,7 +8,7 @@
  * @note
  * SPDX-License-Identifier: Apache-2.0
  * Copyright (C) 2018 Nuvoton Technology Corp. All rights reserved.
-*****************************************************************************/
+ *****************************************************************************/
 #include "M031Series.h"
 
 /** @addtogroup Standard_Driver Standard Driver
@@ -26,7 +26,7 @@
 /**
   * @brief      Open Timer with Operate Mode and Frequency
   *
-  * @param[in]  timer       The pointer of the specified Timer module. It could be TIMER0, TIMER1, TIMER2, TIMER3.
+  * @param[in]  timer       The pointer of the specified Timer module.
   * @param[in]  u32Mode     Operation mode. Possible options are
   *                         - \ref TIMER_ONESHOT_MODE
   *                         - \ref TIMER_PERIODIC_MODE
@@ -68,7 +68,7 @@ uint32_t TIMER_Open(TIMER_T *timer, uint32_t u32Mode, uint32_t u32Freq)
 /**
   * @brief      Stop Timer Counting
   *
-  * @param[in]  timer   The pointer of the specified Timer module. It could be TIMER0, TIMER1, TIMER2, TIMER3.
+  * @param[in]  timer   The pointer of the specified Timer module.
   *
   * @return     None
   *
@@ -83,7 +83,7 @@ void TIMER_Close(TIMER_T *timer)
 /**
   * @brief      Create a specify Delay Time
   *
-  * @param[in]  timer       The pointer of the specified Timer module. It could be TIMER0, TIMER1, TIMER2, TIMER3.
+  * @param[in]  timer       The pointer of the specified Timer module.
   * @param[in]  u32Usec     Delay period in micro seconds. Valid values are between 100~1000000 (100 micro second ~ 1 second).
   *
   * @return     None
@@ -147,7 +147,7 @@ void TIMER_Delay(TIMER_T *timer, uint32_t u32Usec)
 /**
   * @brief      Enable Timer Capture Function
   *
-  * @param[in]  timer       The pointer of the specified Timer module. It could be TIMER0, TIMER1, TIMER2, TIMER3.
+  * @param[in]  timer       The pointer of the specified Timer module.
   * @param[in]  u32CapMode  Timer capture mode. Could be
   *                         - \ref TIMER_CAPTURE_FREE_COUNTING_MODE
   *                         - \ref TIMER_CAPTURE_COUNTER_RESET_MODE
@@ -171,7 +171,7 @@ void TIMER_EnableCapture(TIMER_T *timer, uint32_t u32CapMode, uint32_t u32Edge)
 /**
   * @brief      Disable Timer Capture Function
   *
-  * @param[in]  timer   The pointer of the specified Timer module. It could be TIMER0, TIMER1, TIMER2, TIMER3.
+  * @param[in]  timer   The pointer of the specified Timer module.
   *
   * @return     None
   *
@@ -185,7 +185,7 @@ void TIMER_DisableCapture(TIMER_T *timer)
 /**
   * @brief      Enable Timer Counter Function
   *
-  * @param[in]  timer       The pointer of the specified Timer module. It could be TIMER0, TIMER1, TIMER2, TIMER3.
+  * @param[in]  timer       The pointer of the specified Timer module.
   * @param[in]  u32Edge     Detection edge of counter pin. Could be ether
   *                         - \ref TIMER_COUNTER_FALLING_EDGE, or
   *                         - \ref TIMER_COUNTER_RISING_EDGE
@@ -205,7 +205,7 @@ void TIMER_EnableEventCounter(TIMER_T *timer, uint32_t u32Edge)
 /**
   * @brief      Disable Timer Counter Function
   *
-  * @param[in]  timer   The pointer of the specified Timer module. It could be TIMER0, TIMER1, TIMER2, TIMER3.
+  * @param[in]  timer   The pointer of the specified Timer module.
   *
   * @return     None
   *
@@ -219,7 +219,7 @@ void TIMER_DisableEventCounter(TIMER_T *timer)
 /**
   * @brief      Get Timer Clock Frequency
   *
-  * @param[in]  timer   The pointer of the specified Timer module. It could be TIMER0, TIMER1, TIMER2, TIMER3.
+  * @param[in]  timer   The pointer of the specified Timer module.
   *
   * @return     Timer clock frequency
   *
@@ -254,7 +254,7 @@ uint32_t TIMER_GetModuleClock(TIMER_T *timer)
 /**
   * @brief      Enable the Timer Frequency Counter Function
   *
-  * @param[in]  timer           The pointer of the specified Timer module. It could be TIMER0, TIMER1, TIMER2, TIMER3.
+  * @param[in]  timer           The pointer of the specified Timer module.
   * @param[in]  u32DropCount    This parameter has no effect in M031 series BSP.
   * @param[in]  u32Timeout      This parameter has no effect in M031 series BSP.
   * @param[in]  u32EnableInt    Enable interrupt assertion after capture complete or not. Valid values are TRUE and FALSE.
@@ -262,7 +262,7 @@ uint32_t TIMER_GetModuleClock(TIMER_T *timer)
   * @return     None
   *
   * @details    This function is used to calculate input event frequency. After enable
-  *             this function, a pair of timers, TIMER0 and TIMER1, or TIMER2 and TIMER3
+  *             this function, a pair of timers, such as TIMER0 and TIMER1,
   *             will be configured for this function. The mode used to calculate input
   *             event frequency is mentioned as "Inter Timer Trigger Mode" in Technical
   *             Reference Manual
@@ -283,7 +283,7 @@ void TIMER_EnableFreqCounter(TIMER_T *timer, uint32_t u32DropCount, uint32_t u32
 /**
   * @brief      Disable the Timer Frequency Counter Function
   *
-  * @param[in]  timer       The pointer of the specified Timer module. It could be TIMER0, TIMER1, TIMER2, TIMER3.
+  * @param[in]  timer       The pointer of the specified Timer module.
   *
   * @return     None
   */
@@ -295,7 +295,7 @@ void TIMER_DisableFreqCounter(TIMER_T *timer)
 /**
   * @brief      Select Other Modules Triggered Source
   *
-  * @param[in]  timer       The pointer of the specified Timer module. It could be TIMER0, TIMER1, TIMER2, TIMER3.
+  * @param[in]  timer       The pointer of the specified Timer module.
   * @param[in]  u32Src      Selects the interrupt source to trigger other modules. Could be:
   *                         - \ref TIMER_TRGSRC_TIMEOUT_EVENT
   *                         - \ref TIMER_TRGSRC_CAPTURE_EVENT
@@ -310,17 +310,18 @@ void TIMER_SetTriggerSource(TIMER_T *timer, uint32_t u32Src)
 /**
   * @brief      Set Modules Trigger by Timer Interrupt Event
   *
-  * @param[in]  timer       The pointer of the specified Timer module. It could be TIMER0, TIMER1, TIMER2, TIMER3.
-  * @param[in]  u32Mask     The mask of modules (PWM, ADC and PDMA) trigger by timer. Is the combination of
+  * @param[in]  timer       The pointer of the specified Timer module.
+  * @param[in]  u32Mask     The mask of modules (PWM, ADC, BPWM and PDMA) trigger by timer. Is the combination of
   *                         - \ref TIMER_TRG_TO_PWM
   *                         - \ref TIMER_TRG_TO_ADC
   *                         - \ref TIMER_TRG_TO_PDMA
+  *                         - \ref TIMER_TRG_TO_BPWM
   *
   * @return     None
   */
 void TIMER_SetTriggerTarget(TIMER_T *timer, uint32_t u32Mask)
 {
-    timer->CTL = (timer->CTL & ~(TIMER_CTL_TRGPWM_Msk | TIMER_CTL_TRGADC_Msk | TIMER_CTL_TRGPDMA_Msk)) | (u32Mask);
+    timer->CTL = (timer->CTL & ~(TIMER_CTL_TRGPWM_Msk | TIMER_CTL_TRGADC_Msk | TIMER_CTL_TRGPDMA_Msk | TIMER_CTL_TRGBPWM_Msk)) | (u32Mask);
 }
 
 /*@}*/ /* end of group TIMER_EXPORTED_FUNCTIONS */

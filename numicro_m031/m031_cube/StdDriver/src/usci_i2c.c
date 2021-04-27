@@ -36,7 +36,14 @@ uint32_t UI2C_Open(UI2C_T *ui2c, uint32_t u32BusClock)
     uint32_t u32ClkDiv;
     uint32_t u32Pclk;
 
-    u32Pclk = CLK_GetPCLK0Freq();
+    if (ui2c == UI2C0)
+    {
+        u32Pclk = CLK_GetPCLK0Freq();
+    }
+    else
+    {
+        u32Pclk = CLK_GetPCLK1Freq();
+    }
 
     u32ClkDiv = (uint32_t)((((((u32Pclk / 2U) * 10U) / (u32BusClock)) + 5U) / 10U) - 1U); /* Compute proper divider for USCI_I2C clock */
 
@@ -270,7 +277,14 @@ uint32_t UI2C_GetBusClockFreq(UI2C_T *ui2c)
     uint32_t u32Divider;
     uint32_t u32Pclk;
 
-    u32Pclk = CLK_GetPCLK0Freq();
+    if (ui2c == UI2C0)
+    {
+        u32Pclk = CLK_GetPCLK0Freq();
+    }
+    else
+    {
+        u32Pclk = CLK_GetPCLK1Freq();
+    }
 
     u32Divider = (ui2c->BRGEN & UI2C_BRGEN_CLKDIV_Msk) >> UI2C_BRGEN_CLKDIV_Pos;
 
@@ -292,7 +306,14 @@ uint32_t UI2C_SetBusClockFreq(UI2C_T *ui2c, uint32_t u32BusClock)
     uint32_t u32ClkDiv;
     uint32_t u32Pclk;
 
-    u32Pclk = CLK_GetPCLK0Freq();
+    if (ui2c == UI2C0)
+    {
+        u32Pclk = CLK_GetPCLK0Freq();
+    }
+    else
+    {
+        u32Pclk = CLK_GetPCLK1Freq();
+    }
 
     u32ClkDiv = (uint32_t)((((((u32Pclk / 2U) * 10U) / (u32BusClock)) + 5U) / 10U) - 1U); /* Compute proper divider for USCI_I2C clock */
 
@@ -932,7 +953,7 @@ uint8_t UI2C_WriteByteTwoRegs(UI2C_T *ui2c, uint8_t u8SlaveAddr, uint16_t u16Dat
 
             if (u32txLen == 0U)
             {
-                UI2C_SET_DATA(ui2c, (uint8_t)(u16DataAddr & 0xFF00U) >> 8U);  /* Write Hi byte data address to UI2C_TXDAT */
+                UI2C_SET_DATA(ui2c, (uint8_t)((u16DataAddr & 0xFF00U) >> 8U));  /* Write Hi byte data address to UI2C_TXDAT */
                 u32txLen++;
             }
             else if (u32txLen == 1U)
@@ -1019,7 +1040,7 @@ uint32_t UI2C_WriteMultiBytesTwoRegs(UI2C_T *ui2c, uint8_t u8SlaveAddr, uint16_t
 
             if (eEvent == MASTER_SEND_ADDRESS)
             {
-                UI2C_SET_DATA(ui2c, (uint8_t)(u16DataAddr & 0xFF00U) >> 8U);  /* Write Hi byte data address to UI2C_TXDAT */
+                UI2C_SET_DATA(ui2c, (uint8_t)((u16DataAddr & 0xFF00U) >> 8U));  /* Write Hi byte data address to UI2C_TXDAT */
                 eEvent = MASTER_SEND_DATA;
             }
             else if (eEvent == MASTER_SEND_DATA)
@@ -1484,7 +1505,7 @@ uint8_t UI2C_ReadByteTwoRegs(UI2C_T *ui2c, uint8_t u8SlaveAddr, uint16_t u16Data
 
             if (eEvent == MASTER_SEND_ADDRESS)
             {
-                UI2C_SET_DATA(ui2c, (uint8_t)(u16DataAddr & 0xFF00U) >> 8U);  /* Write Hi byte address of register */
+                UI2C_SET_DATA(ui2c, (uint8_t)((u16DataAddr & 0xFF00U) >> 8U));  /* Write Hi byte address of register */
                 eEvent = MASTER_SEND_DATA;
             }
             else if (eEvent == MASTER_SEND_DATA)
@@ -1598,7 +1619,7 @@ uint32_t UI2C_ReadMultiBytesTwoRegs(UI2C_T *ui2c, uint8_t u8SlaveAddr, uint16_t 
 
             if (eEvent == MASTER_SEND_ADDRESS)
             {
-                UI2C_SET_DATA(ui2c, (uint8_t)(u16DataAddr & 0xFF00U) >> 8U);  /* Write Hi byte address of register */
+                UI2C_SET_DATA(ui2c, (uint8_t)((u16DataAddr & 0xFF00U) >> 8U));  /* Write Hi byte address of register */
                 eEvent = MASTER_SEND_DATA;
             }
             else if (eEvent == MASTER_SEND_DATA)

@@ -160,9 +160,11 @@ static int push_nu_rbuf(struct nu_uart_var *psNuUartVar, uint8_t *pu8Buf, int le
 
     while (wrote_byte < len)
     {
-        /* Wait for Lock */
         ret = nu_rbuf_write(pnu_rbuf, &pu8Buf[wrote_byte], (len - wrote_byte));
-        wrote_byte += ret;
+        if (ret > 0)
+            wrote_byte += ret;
+        else
+            break;
     }
 
     return wrote_byte;
@@ -175,54 +177,31 @@ static int UART_GET_FIFO_LENGTH(UART_T *uart_base)
 
 static void hal_uart_rxbuf_irq(struct nu_uart_var *psNuUartVar, uint32_t u32INTSTS)
 {
-    uint8_t dat[UART0_FIFO_SIZE] = {0};
-    int counter = 0;
-    int aval_bytes = 0;
     S_UARTDev *psUARTDev = psNuUartVar->dev;
     UART_T *uart_base = (UART_T *) NU_MODBASE(psUARTDev->uart);
-    int bDoSignal = (u32INTSTS & UART_INTSTS_RXTOIF_Msk) >> UART_INTSTS_RXTOIF_Pos;
 
-    while ((aval_bytes = nu_rbuf_avail_write_space(&psNuUartVar->fifo_rbuf_rx)) >= UART0_FIFO_SIZE)
+    int readable_bytes = UART_GET_FIFO_LENGTH(uart_base);
+    int aval_bytes = 0;
+
+    while (readable_bytes > 0)
     {
-        if (bDoSignal)
-            counter = 0;
-
-        if ((!bDoSignal) && ((aval_bytes = UART_GET_FIFO_LENGTH(uart_base)) == 1)) break;
-
-        counter = 0;
-
-        while (UART_IS_RX_READY(uart_base))
+        if (nu_rbuf_write(&psNuUartVar->fifo_rbuf_rx, (uint8_t *)&uart_base->DAT, 1) != 1)
         {
-            if ((!bDoSignal) && ((aval_bytes = UART_GET_FIFO_LENGTH(uart_base)) == 1)) break;
-
-            counter = 0;
-
-            while (UART_IS_RX_READY(uart_base))
+            // Drop if not empty
+            while (!UART_GET_RX_EMPTY(uart_base))
             {
-                if ((!bDoSignal) && ((aval_bytes = UART_GET_FIFO_LENGTH(uart_base)) == 1)) break;
-
-                if (counter < UART0_FIFO_SIZE)
-                {
-                    dat[counter] = (uint8_t)uart_base->DAT;
-                    counter++;
-                }
-                else
-                    break;
+                uint32_t u32ch = (uint8_t)uart_base->DAT;
             }
-        }
-
-        if (counter)
-            push_nu_rbuf(psNuUartVar, &dat[0], counter);
-        else
             break;
-    }//while
+        }
+        aval_bytes++;
+        readable_bytes--;
+    }
 
-    if ((nu_rbuf_avail_read_space(&psNuUartVar->fifo_rbuf_rx) > 0) && bDoSignal)
+    if (aval_bytes > 0)
     {
-#if DEVICE_UART_RX_DMA
         if (psUARTDev && psUARTDev->irq_handler_rx)
             psUARTDev->irq_handler_rx(psUARTDev, eUARTEvent_Received);
-#endif
     }
 }
 
@@ -246,9 +225,7 @@ static void uart_irq(struct nu_uart_var *psNuUartVar)
     if (u32INTSTS & (UART_INTSTS_RDAINT_Msk | UART_INTSTS_RXTOINT_Msk))
     {
         // Simulate clear of the interrupt flag. Temporarily disable the interrupt here and to be recovered on next read.
-        //UART_DISABLE_INT(uart_base, (UART_INTEN_RDAIEN_Msk | UART_INTEN_RXTOIEN_Msk));
         hal_uart_rxbuf_irq(psNuUartVar, u32INTSTS);
-        //UART_ENABLE_INT ( uart_base, (UART_INTEN_RDAIEN_Msk | UART_INTEN_RXTOIEN_Msk) );
     }
 
     // FIXME: Ignore all other interrupt flags. Clear them. Otherwise, program will get stuck in interrupt.

@@ -410,6 +410,38 @@ extern "C"
 
 
 /**
+ *    @brief        Enable specified USCI_UART PDMA function
+ *
+ *    @param[in]    uuart      The pointer of the specified USCI_UART module
+ *    @param[in]    u32FuncSel Combination of following functions
+ *                             - \ref UUART_PDMACTL_TXPDMAEN_Msk
+ *                             - \ref UUART_PDMACTL_RXPDMAEN_Msk
+ *                             - \ref UUART_PDMACTL_PDMAEN_Msk
+ *
+ *    @return       None
+ *
+ *    \hideinitializer
+ */
+#define UUART_PDMA_ENABLE(uuart, u32FuncSel)   ((uuart)->PDMACTL |= (u32FuncSel))
+
+
+/**
+ *    @brief        Disable specified USCI_UART PDMA function
+ *
+ *    @param[in]    uuart      The pointer of the specified USCI_UART module
+ *    @param[in]    u32FuncSel Combination of following functions
+ *                             - \ref UUART_PDMACTL_TXPDMAEN_Msk
+ *                             - \ref UUART_PDMACTL_RXPDMAEN_Msk
+ *                             - \ref UUART_PDMACTL_PDMAEN_Msk
+ *
+ *    @return       None
+ *
+ *    \hideinitializer
+ */
+#define UUART_PDMA_DISABLE(uuart, u32FuncSel)   ((uuart)->PDMACTL &= ~(u32FuncSel))
+
+
+/**
  *    @brief      Trigger RX PDMA function.
  *
  *    @param[in]  uuart The pointer of the specified USCI_UART module.
