@@ -1,10 +1,10 @@
 # Instructions for working with the OTA/Custom Loader support:
 
-## In ack_m4521_ota_config.h, adjust configuration for your specific M4521 series. [M4521RE6AE (128K flash, 32K RAM)]().
+## In ack_m4521_ota_config.h, adjust configuration for your specific M4521 series. M4521RE6AE (128K flash, 32K RAM).
 
 ## Configure ROM and RAM program regions in the CustomLoader project.
 
-In Keil, this is done in the [[Options for CustomLoader - Target "CustomLoader"]]() dialog, [Target]() tab. Near the bottom of the dialog there are IROM1 and IRAM1 memory areas defined.
+In Keil, this is done in the [Options for CustomLoader - Target "CustomLoader"] dialog, [Target] tab. Near the bottom of the dialog there are IROM1 and IRAM1 memory areas defined.
 
 For M4521RE6AE assuming 6K Loader Partition:
 ```
@@ -22,7 +22,7 @@ IRAM1 size is the full amount of RAM on the MCU.
 ## Configure ROM and RAM program regions in the HMCU app.
 
 In Keil, this is done in the [Options for xxx - Target "xxx"] dialog, [Linker] tag.
-Disable [Use memory Layer from Target Dialog], and specify scatter file path to [../../common/Misc/ack_hmcu_example.sct]() Near the bottom of the dialog there are IROM1 and IRAM1 memory areas defined.
+Disable [Use memory Layer from Target Dialog], and specify scatter file path to [../../common/Misc/ack_hmcu_example.sct] Near the bottom of the dialog there are IROM1 and IRAM1 memory areas defined.
 
 The above are calculated as follows (see ack_m4521_ota_config.h for the values referenced in these descriptions).
 ```
