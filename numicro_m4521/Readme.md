@@ -22,8 +22,7 @@ The main() have been added one call to setup(), and calls to loop() on each pass
 
 ## Wiring
 
-The ACK connectivity module shield must be connected to M4521 board.
-The three power-related pins (ioref, 5v, gnd) are the same on both boards. On the bottom left Arduino header on both boards:
+Some pins of ACK connectivity module shield must be connected to NuTiny-M4521S board.
 
 ### Power-related Pins:
 
@@ -49,7 +48,6 @@ The three power-related pins (ioref, 5v, gnd) are the same on both boards. On th
 | HeartBeat LED(Alexa-connected indicator) | On-board LED(GPIO output, IO1) |
 | SmartLight LED | P28(Defined PWM I/O pin) |
 | Restore Button(Factory restore button) | P23(GPIO input) |
-
 
 ## Resources
 
