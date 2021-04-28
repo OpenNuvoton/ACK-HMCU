@@ -43,11 +43,11 @@ Some pins of ACK connectivity module shield must be connected to NuTiny-M4521S b
 
 ### Other I/O Pins:
 
-| I/O Pin | NuTiny-M4521S |
+|  NuTiny-M4521S I/O Pin | Function Description |
 |-|-|
-| HeartBeat LED(Alexa-connected indicator) | On-board LED(GPIO output, IO1) |
-| SmartLight LED | P28(Defined PWM I/O pin) |
-| Restore Button(Factory restore button) | P23(GPIO input) |
+| On-board HeartBeat LED (GPIO output, IO1) | Alexa-connected indicator |
+| P28(Defined PWM I/O pin) | SmartLight LED |
+| P23(GPIO input) | Restore factory setting |
 
 ## Resources
 
