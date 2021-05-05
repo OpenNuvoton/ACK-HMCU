@@ -10,11 +10,12 @@ Please download ACK_Device_SDK_3.2 package from ACK developer resource.<br>
 Then, make sure current branch is 'SDK3' and copy 'numicro_m031' folder in this repository into <Path-to-ACK_Device_SDK3.2>\user\platform\.
 ### For ACK_HMCU_SDK4 user:
 Please download ACK_Device_SDK_4 package from ACK developer resource.<br>
-Then, switch to 'master' branch and copy 'numicro_m031' or 'numicro_m4521' folder in this repository into <Path-to-ACK_Device_SDK4>\user\platform\.
+Then, switch to 'master' branch and copy 'numicro_m031' or others folder in this repository into <Path-to-ACK_Device_SDK4>\user\platform\.
 
 ## Document
 * [ACK HMCU NuMaker-M032SE Quick-Start guide](https://raw.githubusercontent.com/OpenNuvoton/ACK-HMCU/master/numicro_m031/docs/Amazon%20ACK%20HMCU%20on%20NuMaker-M032SE.pdf)
 * [ACK HMCU NuTiny-M4521S Quick-Start guide](https://raw.githubusercontent.com/OpenNuvoton/ACK-HMCU/master/numicro_m4521/docs/Amazon%20ACK%20HMCU%20on%20NuTiny-M4521S.pdf)
+* [ACK HMCU NuTiny-M451V Quick-Start guide](https://raw.githubusercontent.com/OpenNuvoton/ACK-HMCU/master/numicro_m451/docs/Amazon%20ACK%20HMCU%20on%20NuTiny-M451V.pdf)
 
 ## Resources
 * [Download ACK_Device_SDK](https://developer.amazon.com/alexa/console/ack/resources)
