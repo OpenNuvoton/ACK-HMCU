@@ -21,11 +21,21 @@ extern "C"
 // The sum of the Loader and Status Partition sizes must be an even multiple of FLASH_PAGE_SIZE
 // so that the remainder of flash can be equally divided among the Staging and Primary Partitions.
 
-// For M032SEAAE: 128KB flash and 16K RAM, Flash page size: 512B.
 #define ACK_NUMICRO_OTA_FLASH_BASE         FLASH_BASE
+
+// For M032SEAAE: 128KB flash and 16K RAM, Flash page size: 512B.
 #define ACK_NUMICRO_OTA_FLASH_SIZE         FLASH_SIZE
-#define ACK_NUMICRO_OTA_FLASH_PAGE_SIZE        FLASH_PAGE_SIZE
-#define ACK_NUMICRO_OTA_LOADER_PARTITION_SIZE      (11*ACK_NUMICRO_OTA_FLASH_PAGE_SIZE)    // 5.5KB
+#define ACK_NUMICRO_OTA_FLASH_PAGE_SIZE    FLASH_PAGE_SIZE
+
+// For M032KG/KI series: 256/512KB flash,  Flash page size: 2048 Bytes.
+#define ACK_NUMICRO_OTA_FLASH_SIZE         FLASH_SIZE
+#define ACK_NUMICRO_OTA_FLASH_PAGE_SIZE    FLASH_PAGE_SIZE
+
+#ifndef PAGE_SIZE_2048
+#define ACK_NUMICRO_OTA_LOADER_PARTITION_SIZE  (11*ACK_NUMICRO_OTA_FLASH_PAGE_SIZE)    // 5.5KB
+#else
+#define ACK_NUMICRO_OTA_LOADER_PARTITION_SIZE  (3*ACK_NUMICRO_OTA_FLASH_PAGE_SIZE)    // 6 KB
+#endif
 
 #ifdef __cplusplus
 }
