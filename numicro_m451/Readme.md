@@ -10,11 +10,11 @@ the Keil uVision development environment.
 |-|-|
 | m451_cube\                |  Nuvoton M451 series BSP |
 | ack_m451*.c, ack_m451*.h |  Shared ACK-specific C source code |
-| nutiny-m451s\                 |  MCU-specific directories |
-| nutiny-m451s\ack.uvmpw        |  Multi-project workspace file for Keil uVision 5, contains all ACK Host MCU sample applications for the MCU |
-| nutiny-m451s\applications\\*\      | Projects for ACK Host MCU sample applications |
-| nutiny-m451s\applications\common\  | Some driver and resource for board. |
-| nutiny-m451s\customloader\    | Custom loader application supporting over-the-air updates |
+| nutiny-m451v\                 |  MCU-specific directories |
+| nutiny-m451v\ack.uvmpw        |  Multi-project workspace file for Keil uVision 5, contains all ACK Host MCU sample applications for the MCU |
+| nutiny-m451v\applications\\*\      | Projects for ACK Host MCU sample applications |
+| nutiny-m451v\applications\common\  | Some driver and resource for board. |
+| nutiny-m451v\customloader\    | Custom loader application supporting over-the-air updates |
 
 ## Programming Flow
 
@@ -36,18 +36,18 @@ Some pins of ACK connectivity module shield must be connected to NuTiny-M451V bo
 
 | ACK Connectivity Module shield | NuTiny-M451V |
 |-|-|
-| RX | P37 |
-| TX | P38 |
-| INT(Interrupt) | P39 |
-| RES(Reset) | P40 |
+| RX | P66 |
+| TX | P67 |
+| INT(Interrupt) | P68 |
+| RES(Reset) | P69 |
 
 ### Other I/O Pins:
 
 |  NuTiny-M451V I/O Pin | Function Description |
 |-|-|
 | On-board HeartBeat LED (GPIO output, IO1) | Alexa-connected indicator |
-| P28(Defined PWM I/O pin) | SmartLight LED |
-| P23(GPIO input) | Restore factory setting |
+| P45(Defined PWM I/O pin) | SmartLight LED |
+| P43(GPIO input) | Restore factory setting |
 
 ## Resources
 
