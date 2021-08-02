@@ -26,10 +26,10 @@ void Loader(void)
     // Check status partition to see whether there's an unapplied OTA image.
     if (CheckStatusPartitionForUnappliedImage())
     {
-        printf("Will update.\n");
+        //printf("Will update.\n");
         if (ApplyOtaImage())
         {
-            printf("Updated image to PRIMARY partition from STAGING.\n");
+            printf("Updated to PRIMARY from STAGING.\n");
             EraseStatusPartitionToIndicateNoUnappliedImage();
         }
         else
@@ -142,7 +142,7 @@ void JumpToApplication(void)
 
     FMC_Open();
 
-    printf("VECMAP = 0x%x\n", FMC_GetVECMAP());
+    //printf("VECMAP = 0x%x\n", FMC_GetVECMAP());
 
     while ((UART0->FIFOSTS & UART_FIFOSTS_TXEMPTY_Msk) == 0);
 
