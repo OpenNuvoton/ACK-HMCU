@@ -5,7 +5,7 @@
  * SPDX-License-Identifier: Apache-2.0
  * Copyright (C) 2020 Nuvoton Technology Corp. All rights reserved.
  ******************************************************************************/
- 
+
 #ifndef HAL_GPIO_H
 #define HAL_GPIO_H
 

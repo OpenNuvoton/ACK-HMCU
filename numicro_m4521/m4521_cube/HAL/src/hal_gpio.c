@@ -75,24 +75,27 @@ static void numicro_gpio_irq(struct nu_gpio_irq_var *var)
     {
         int pin_index = nu_ctz(intsrc);
         S_GPIODev *dev = var->obj_arr[pin_index];
-        if (inten & (GPIO_INT_RISING << pin_index))
+        if (dev != NULL)
         {
-            if (GPIO_PIN_DATA(port_index, pin_index))
+            if (inten & (GPIO_INT_RISING << pin_index))
             {
-                if (dev->irq_handler)
+                if (GPIO_PIN_DATA(port_index, pin_index))
                 {
-                    ((gpio_irq_handler_t) dev->irq_handler)(dev->arg);
+                    if (dev->irq_handler)
+                    {
+                        ((gpio_irq_handler_t) dev->irq_handler)(dev->arg);
+                    }
                 }
             }
-        }
 
-        if (inten & (GPIO_INT_FALLING << pin_index))
-        {
-            if (! GPIO_PIN_DATA(port_index, pin_index))
+            if (inten & (GPIO_INT_FALLING << pin_index))
             {
-                if (dev->irq_handler)
+                if (! GPIO_PIN_DATA(port_index, pin_index))
                 {
-                    ((gpio_irq_handler_t) dev->irq_handler)(dev->arg);
+                    if (dev->irq_handler)
+                    {
+                        ((gpio_irq_handler_t) dev->irq_handler)(dev->arg);
+                    }
                 }
             }
         }
