@@ -338,7 +338,7 @@
               <MiscControls></MiscControls>
               <Define>PAGE_SIZE_2048 FLASH_SIZE=262144</Define>
               <Undefine></Undefine>
-              <IncludePath>..\Inc;..\..\common\Inc;..\..\..\nuc1261_cube\HAL\inc;..\..\..\nuc1261_cube\HAL\inc\misc;..\..\..\nuc1261_cube\CMSIS\Include;..\..\..\nuc1261_cube\Device\Nuvoton\NUC1261\Include;..\..\..\nuc1261_cube\StdDriver\inc</IncludePath>
+              <IncludePath>..\Inc;..\..\common\Inc;..\..\..\libraries\HAL\inc;..\..\..\libraries\HAL\inc\misc;..\..\..\libraries\CMSIS\Include;..\..\..\libraries\Device\Nuvoton\NUC1261\Include;..\..\..\libraries\StdDriver\inc</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -385,7 +385,7 @@
             <File>
               <FileName>startup_NUC1261.s</FileName>
               <FileType>2</FileType>
-              <FilePath>..\..\..\nuc1261_cube\Device\Nuvoton\NUC1261\Source\ARM\startup_NUC1261.s</FilePath>
+              <FilePath>..\..\..\libraries\Device\Nuvoton\NUC1261\Source\ARM\startup_NUC1261.s</FilePath>
             </File>
           </Files>
         </Group>
@@ -410,37 +410,37 @@
             <File>
               <FileName>clk.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\nuc1261_cube\StdDriver\src\clk.c</FilePath>
+              <FilePath>..\..\..\libraries\StdDriver\src\clk.c</FilePath>
             </File>
             <File>
               <FileName>crc.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\nuc1261_cube\StdDriver\src\crc.c</FilePath>
+              <FilePath>..\..\..\libraries\StdDriver\src\crc.c</FilePath>
             </File>
             <File>
               <FileName>fmc.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\nuc1261_cube\StdDriver\src\fmc.c</FilePath>
+              <FilePath>..\..\..\libraries\StdDriver\src\fmc.c</FilePath>
             </File>
             <File>
               <FileName>retarget.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\nuc1261_cube\StdDriver\src\retarget.c</FilePath>
+              <FilePath>..\..\..\libraries\StdDriver\src\retarget.c</FilePath>
             </File>
             <File>
               <FileName>sys.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\nuc1261_cube\StdDriver\src\sys.c</FilePath>
+              <FilePath>..\..\..\libraries\StdDriver\src\sys.c</FilePath>
             </File>
             <File>
               <FileName>uart.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\nuc1261_cube\StdDriver\src\uart.c</FilePath>
+              <FilePath>..\..\..\libraries\StdDriver\src\uart.c</FilePath>
             </File>
             <File>
               <FileName>gpio.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\nuc1261_cube\StdDriver\src\gpio.c</FilePath>
+              <FilePath>..\..\..\libraries\StdDriver\src\gpio.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -450,7 +450,7 @@
             <File>
               <FileName>system_NUC1261.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\nuc1261_cube\Device\Nuvoton\NUC1261\Source\system_NUC1261.c</FilePath>
+              <FilePath>..\..\..\libraries\Device\Nuvoton\NUC1261\Source\system_NUC1261.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -527,14 +527,14 @@
           </GroupOption>
           <Files>
             <File>
-              <FileName>ack_nuc1261_custom_loader.c</FileName>
+              <FileName>ack_numicro_custom_loader.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\ack_nuc1261_custom_loader.c</FilePath>
+              <FilePath>..\..\..\ack_numicro_custom_loader.c</FilePath>
             </File>
             <File>
-              <FileName>ack_nuc1261_ota.c</FileName>
+              <FileName>ack_numicro_ota.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\ack_nuc1261_ota.c</FilePath>
+              <FilePath>..\..\..\ack_numicro_ota.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -544,47 +544,47 @@
             <File>
               <FileName>hal_crc.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\nuc1261_cube\HAL\src\hal_crc.c</FilePath>
+              <FilePath>..\..\..\libraries\HAL\src\hal_crc.c</FilePath>
             </File>
             <File>
               <FileName>hal_flash.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\nuc1261_cube\HAL\src\hal_flash.c</FilePath>
+              <FilePath>..\..\..\libraries\HAL\src\hal_flash.c</FilePath>
             </File>
             <File>
               <FileName>hal_gpio.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\nuc1261_cube\HAL\src\hal_gpio.c</FilePath>
+              <FilePath>..\..\..\libraries\HAL\src\hal_gpio.c</FilePath>
             </File>
             <File>
               <FileName>hal_sys.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\nuc1261_cube\HAL\src\hal_sys.c</FilePath>
+              <FilePath>..\..\..\libraries\HAL\src\hal_sys.c</FilePath>
             </File>
             <File>
               <FileName>nu_miscutil.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\nuc1261_cube\HAL\src\nu_miscutil.c</FilePath>
+              <FilePath>..\..\..\libraries\HAL\src\nu_miscutil.c</FilePath>
             </File>
             <File>
               <FileName>nu_modutil.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\nuc1261_cube\HAL\src\nu_modutil.c</FilePath>
+              <FilePath>..\..\..\libraries\HAL\src\nu_modutil.c</FilePath>
             </File>
             <File>
               <FileName>nu_rbuf.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\nuc1261_cube\HAL\src\nu_rbuf.c</FilePath>
+              <FilePath>..\..\..\libraries\HAL\src\nu_rbuf.c</FilePath>
             </File>
             <File>
               <FileName>peripheral_pins.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\nuc1261_cube\HAL\src\peripheral_pins.c</FilePath>
+              <FilePath>..\..\..\libraries\HAL\src\peripheral_pins.c</FilePath>
             </File>
             <File>
               <FileName>pinmap.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\nuc1261_cube\HAL\src\pinmap.c</FilePath>
+              <FilePath>..\..\..\libraries\HAL\src\pinmap.c</FilePath>
             </File>
           </Files>
         </Group>

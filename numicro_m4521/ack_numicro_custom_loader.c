@@ -1,5 +1,5 @@
 /**************************************************************************//**
- * @file     ack_m031_custom_loader.c
+ * @file     ack_numicro_custom_loader.c
  * @brief    ACK HMCU bootloader implementation.
  *
  * @note
@@ -8,7 +8,7 @@
  ******************************************************************************/
 
 #include "main.h"
-#include "ack_nuc1261_ota.h"
+#include "ack_numicro_ota.h"
 #include <stdbool.h>
 #include <stdint.h>
 #include "numicro_hal.h"
@@ -142,13 +142,14 @@ void JumpToApplication(void)
 
     FMC_Open();
 
-    //printf("VECMAP = 0x%x\n", FMC_GetVECMAP());
+    //printf("VECMAP = 0x%x -> 0x%x\r\n", FMC_GetVECMAP(), ACK_NUMICRO_OTA_PRIMARY_PARTITION_START);
 
     while ((UART0->FIFOSTS & UART_FIFOSTS_TXEMPTY_Msk) == 0);
 
     FMC_SetVectorPageAddr(ACK_NUMICRO_OTA_PRIMARY_PARTITION_START);
     SYS_LockReg();
 
+    SYS_ResetCPU();
     NVIC_SystemReset();
 
     // Never get here.

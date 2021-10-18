@@ -1,6 +1,6 @@
 Instructions for working with the OTA/Custom Loader support:
 
-(1) In ack_m031_ota_config.h, adjust configuration for your specific M031 series. M032SE3AE (128K flash, 16K RAM).
+(1) In ack_numicro_ota_config.h, adjust configuration for your specific M031 series. M032SE3AE (128K flash, 16K RAM).
 
 (2) Configure ROM and RAM program regions in the CustomLoader project.
 

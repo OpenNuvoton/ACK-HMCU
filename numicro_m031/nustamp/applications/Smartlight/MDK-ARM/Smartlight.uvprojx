@@ -338,7 +338,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>..;..\..\..\..;..\..\..\common\Inc;..\..\..\..\m031_cube\CMSIS\Include;..\..\..\..\m031_cube\HAL\inc;..\..\..\..\m031_cube\HAL\inc\misc;..\..\..\..\m031_cube\Device\Nuvoton\M031\Include;..\..\..\..\m031_cube\StdDriver\inc;..\..\..\..\..\..\..\applications\SmartLight;..\..\..\..\..\..\..\include;..\..\..\..\..\..\..\core;..\..\..\..\..\..\..\core\generated;..\..\..\..\..\..\..\core\generated\v3avs_capabilities;..\..\..\..\..\..\..\external\nanopb</IncludePath>
+              <IncludePath>..;..\..\..\..;..\..\..\common\Inc;..\..\..\..\libraries\CMSIS\Include;..\..\..\..\libraries\HAL\inc;..\..\..\..\libraries\HAL\inc\misc;..\..\..\..\libraries\Device\Nuvoton\M031\Include;..\..\..\..\libraries\StdDriver\inc;..\..\..\..\..\..\..\applications\SmartLight;..\..\..\..\..\..\..\include;..\..\..\..\..\..\..\core;..\..\..\..\..\..\..\core\generated;..\..\..\..\..\..\..\core\generated\v3avs_capabilities;..\..\..\..\..\..\..\external\nanopb</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -383,14 +383,14 @@
           <GroupName>ACKApplication</GroupName>
           <Files>
             <File>
-              <FileName>ack_m031_ota.c</FileName>
+              <FileName>ack_numicro_ota.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\ack_m031_ota.c</FilePath>
+              <FilePath>..\..\..\..\ack_numicro_ota.c</FilePath>
             </File>
             <File>
-              <FileName>ack_m031_platform.c</FileName>
+              <FileName>ack_numicro_platform.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\ack_m031_platform.c</FilePath>
+              <FilePath>..\..\..\..\ack_numicro_platform.c</FilePath>
             </File>
             <File>
               <FileName>Smartlight.c</FileName>
@@ -745,7 +745,7 @@
             <File>
               <FileName>startup_M031Series.s</FileName>
               <FileType>2</FileType>
-              <FilePath>..\..\..\..\m031_cube\Device\Nuvoton\M031\Source\ARM\startup_M031Series.s</FilePath>
+              <FilePath>..\..\..\..\libraries\Device\Nuvoton\M031\Source\ARM\startup_M031Series.s</FilePath>
             </File>
           </Files>
         </Group>
@@ -755,7 +755,7 @@
             <File>
               <FileName>system_M031Series.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\m031_cube\Device\Nuvoton\M031\Source\system_M031Series.c</FilePath>
+              <FilePath>..\..\..\..\libraries\Device\Nuvoton\M031\Source\system_M031Series.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -765,122 +765,122 @@
             <File>
               <FileName>acmp.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\m031_cube\StdDriver\src\acmp.c</FilePath>
+              <FilePath>..\..\..\..\libraries\StdDriver\src\acmp.c</FilePath>
             </File>
             <File>
               <FileName>adc.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\m031_cube\StdDriver\src\adc.c</FilePath>
+              <FilePath>..\..\..\..\libraries\StdDriver\src\adc.c</FilePath>
             </File>
             <File>
               <FileName>bpwm.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\m031_cube\StdDriver\src\bpwm.c</FilePath>
+              <FilePath>..\..\..\..\libraries\StdDriver\src\bpwm.c</FilePath>
             </File>
             <File>
               <FileName>clk.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\m031_cube\StdDriver\src\clk.c</FilePath>
+              <FilePath>..\..\..\..\libraries\StdDriver\src\clk.c</FilePath>
             </File>
             <File>
               <FileName>crc.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\m031_cube\StdDriver\src\crc.c</FilePath>
+              <FilePath>..\..\..\..\libraries\StdDriver\src\crc.c</FilePath>
             </File>
             <File>
               <FileName>ebi.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\m031_cube\StdDriver\src\ebi.c</FilePath>
+              <FilePath>..\..\..\..\libraries\StdDriver\src\ebi.c</FilePath>
             </File>
             <File>
               <FileName>fmc.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\m031_cube\StdDriver\src\fmc.c</FilePath>
+              <FilePath>..\..\..\..\libraries\StdDriver\src\fmc.c</FilePath>
             </File>
             <File>
               <FileName>gpio.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\m031_cube\StdDriver\src\gpio.c</FilePath>
+              <FilePath>..\..\..\..\libraries\StdDriver\src\gpio.c</FilePath>
             </File>
             <File>
               <FileName>i2c.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\m031_cube\StdDriver\src\i2c.c</FilePath>
+              <FilePath>..\..\..\..\libraries\StdDriver\src\i2c.c</FilePath>
             </File>
             <File>
               <FileName>pdma.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\m031_cube\StdDriver\src\pdma.c</FilePath>
+              <FilePath>..\..\..\..\libraries\StdDriver\src\pdma.c</FilePath>
             </File>
             <File>
               <FileName>pwm.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\m031_cube\StdDriver\src\pwm.c</FilePath>
+              <FilePath>..\..\..\..\libraries\StdDriver\src\pwm.c</FilePath>
             </File>
             <File>
               <FileName>qspi.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\m031_cube\StdDriver\src\qspi.c</FilePath>
+              <FilePath>..\..\..\..\libraries\StdDriver\src\qspi.c</FilePath>
             </File>
             <File>
               <FileName>retarget.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\m031_cube\StdDriver\src\retarget.c</FilePath>
+              <FilePath>..\..\..\..\libraries\StdDriver\src\retarget.c</FilePath>
             </File>
             <File>
               <FileName>rtc.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\m031_cube\StdDriver\src\rtc.c</FilePath>
+              <FilePath>..\..\..\..\libraries\StdDriver\src\rtc.c</FilePath>
             </File>
             <File>
               <FileName>spi.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\m031_cube\StdDriver\src\spi.c</FilePath>
+              <FilePath>..\..\..\..\libraries\StdDriver\src\spi.c</FilePath>
             </File>
             <File>
               <FileName>sys.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\m031_cube\StdDriver\src\sys.c</FilePath>
+              <FilePath>..\..\..\..\libraries\StdDriver\src\sys.c</FilePath>
             </File>
             <File>
               <FileName>timer.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\m031_cube\StdDriver\src\timer.c</FilePath>
+              <FilePath>..\..\..\..\libraries\StdDriver\src\timer.c</FilePath>
             </File>
             <File>
               <FileName>uart.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\m031_cube\StdDriver\src\uart.c</FilePath>
+              <FilePath>..\..\..\..\libraries\StdDriver\src\uart.c</FilePath>
             </File>
             <File>
               <FileName>usbd.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\m031_cube\StdDriver\src\usbd.c</FilePath>
+              <FilePath>..\..\..\..\libraries\StdDriver\src\usbd.c</FilePath>
             </File>
             <File>
               <FileName>usci_i2c.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\m031_cube\StdDriver\src\usci_i2c.c</FilePath>
+              <FilePath>..\..\..\..\libraries\StdDriver\src\usci_i2c.c</FilePath>
             </File>
             <File>
               <FileName>usci_spi.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\m031_cube\StdDriver\src\usci_spi.c</FilePath>
+              <FilePath>..\..\..\..\libraries\StdDriver\src\usci_spi.c</FilePath>
             </File>
             <File>
               <FileName>usci_uart.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\m031_cube\StdDriver\src\usci_uart.c</FilePath>
+              <FilePath>..\..\..\..\libraries\StdDriver\src\usci_uart.c</FilePath>
             </File>
             <File>
               <FileName>wdt.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\m031_cube\StdDriver\src\wdt.c</FilePath>
+              <FilePath>..\..\..\..\libraries\StdDriver\src\wdt.c</FilePath>
             </File>
             <File>
               <FileName>wwdt.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\m031_cube\StdDriver\src\wwdt.c</FilePath>
+              <FilePath>..\..\..\..\libraries\StdDriver\src\wwdt.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -890,62 +890,62 @@
             <File>
               <FileName>hal_crc.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\m031_cube\HAL\src\hal_crc.c</FilePath>
+              <FilePath>..\..\..\..\libraries\HAL\src\hal_crc.c</FilePath>
             </File>
             <File>
               <FileName>hal_dma.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\m031_cube\HAL\src\hal_dma.c</FilePath>
+              <FilePath>..\..\..\..\libraries\HAL\src\hal_dma.c</FilePath>
             </File>
             <File>
               <FileName>hal_flash.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\m031_cube\HAL\src\hal_flash.c</FilePath>
+              <FilePath>..\..\..\..\libraries\HAL\src\hal_flash.c</FilePath>
             </File>
             <File>
               <FileName>hal_gpio.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\m031_cube\HAL\src\hal_gpio.c</FilePath>
+              <FilePath>..\..\..\..\libraries\HAL\src\hal_gpio.c</FilePath>
             </File>
             <File>
               <FileName>hal_pwm.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\m031_cube\HAL\src\hal_pwm.c</FilePath>
+              <FilePath>..\..\..\..\libraries\HAL\src\hal_pwm.c</FilePath>
             </File>
             <File>
               <FileName>hal_sys.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\m031_cube\HAL\src\hal_sys.c</FilePath>
+              <FilePath>..\..\..\..\libraries\HAL\src\hal_sys.c</FilePath>
             </File>
             <File>
               <FileName>hal_uart.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\m031_cube\HAL\src\hal_uart.c</FilePath>
+              <FilePath>..\..\..\..\libraries\HAL\src\hal_uart.c</FilePath>
             </File>
             <File>
               <FileName>nu_miscutil.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\m031_cube\HAL\src\nu_miscutil.c</FilePath>
+              <FilePath>..\..\..\..\libraries\HAL\src\nu_miscutil.c</FilePath>
             </File>
             <File>
               <FileName>nu_modutil.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\m031_cube\HAL\src\nu_modutil.c</FilePath>
+              <FilePath>..\..\..\..\libraries\HAL\src\nu_modutil.c</FilePath>
             </File>
             <File>
               <FileName>nu_rbuf.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\m031_cube\HAL\src\nu_rbuf.c</FilePath>
+              <FilePath>..\..\..\..\libraries\HAL\src\nu_rbuf.c</FilePath>
             </File>
             <File>
               <FileName>peripheral_pins.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\m031_cube\HAL\src\peripheral_pins.c</FilePath>
+              <FilePath>..\..\..\..\libraries\HAL\src\peripheral_pins.c</FilePath>
             </File>
             <File>
               <FileName>pinmap.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\m031_cube\HAL\src\pinmap.c</FilePath>
+              <FilePath>..\..\..\..\libraries\HAL\src\pinmap.c</FilePath>
             </File>
           </Files>
         </Group>

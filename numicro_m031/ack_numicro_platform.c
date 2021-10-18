@@ -13,17 +13,46 @@
 #include "ack_user_platform.h"
 #include "main.h"
 #include "board.h"
-#include "ack_nuc1261_ota.h"
+#include "ack_numicro_ota.h"
 
 #define ACK_DEBUG_PRINT_UART    &g_asBoardUartDev[eUartDev_DBG]
 #define ACK_MODULE_UART         &g_asBoardUartDev[eUartDev_ACK]
+
+
+
+#ifdef ACK_HOST_FIRMWARE_UPDATE
+    //#define DEF_OFFLINEFWUPDATE
+    static uint32_t sg_otaSize;
+    static uint32_t sg_otaCrc32;
+#endif
 
 /* Initializes your Platform-Specific routines.
  * Your implementation should set up UARTs, GPIO pins,
  * and similar resources needed by the implementations of rest of the ACKPlatform_* functions. */
 void ACKPlatform_Initialize(void)
 {
+#if defined(DEF_OFFLINEFWUPDATE)
+    uint32_t crc32;
+    /* Do an offline OTA firmware upgrading flow testing. */
+    /* You should write another firmware into OTA_STAGING parition before doing the testing. */
+    ACK_DEBUG_PRINT_C("Do an offline OTA firmware upgrading flow testing\r\n");
 
+    /* Prepare sg_otaSize and sg_otaSize variables. */
+    sg_otaSize = ACK_NUMICRO_OTA_STAGING_PARTITION_SIZE;
+    crc32 = ACKPlatform_CalculateCrc32((const void *)ACK_NUMICRO_OTA_STAGING_PARTITION_START, sg_otaSize);
+    sg_otaCrc32 = crc32;
+
+    ACK_DEBUG_PRINT_C("calculated sg_otaCrc32=%08x\r\n", sg_otaCrc32);
+
+    /* Calculate CRC32 checksum */
+    if (ACKPlatform_HostFirmwareUpdateSuccessfullyRetrieved())
+    {
+        ACK_DEBUG_PRINT_C("Applying\r\n");
+
+        /* Write OTA otagging in OTA_STATUS partition if checksum is valid. */
+        ACKPlatform_ApplyHostFirmwareUpdate();
+    }
+#endif
 }
 
 /* Provide elapsed milliseconds (can be used for timing)
@@ -53,7 +82,7 @@ bool ACKPlatform_Receive(void *pBuffer, size_t length, uint32_t timeoutMilliseco
     HAL_Status ret = HAL_UART_Recv(ACK_MODULE_UART, pBuffer, length, &recv_size, timeoutMilliseconds);
     if ((ret != HAL_OK) || (recv_size != length))
     {
-        ACK_DEBUG_PRINT_E("expect size:%d != real returned size:%d timeout=%d \r\n", HAL_SYS_TICK_Get(), length, recv_size, timeoutMilliseconds);
+        ACK_DEBUG_PRINT_E("[%d]expect size:%d != real returned size:%d timeout=%d \r\n", HAL_SYS_TICK_Get(), length, recv_size, timeoutMilliseconds);
         return false;
     }
 
@@ -125,9 +154,6 @@ void ACKPlatform_SetDigitalPinPWMLevel(ACKHardwarePin_t pin, uint8_t val)
 }
 
 #ifdef ACK_HOST_FIRMWARE_UPDATE
-
-static uint32_t sg_otaSize;
-static uint32_t sg_otaCrc32;
 
 bool ACKPlatform_StartHostFirmwareUpdate(uint32_t size, uint32_t targetAddress, uint32_t crc32)
 {
@@ -256,14 +282,13 @@ void ACKPlatform_HostFirmwareUpdateFailed(void)
 void ACKPlatform_ApplyHostFirmwareUpdate(void)
 {
     // Does not return.
-//    HAL_SYS_NVIC_SystemReset();
 
     /* Unlock protected registers */
     SYS_UnlockReg();
 
     FMC_Open();
 
-    ACK_DEBUG_PRINT_C("VECMAP = 0x%x\n", FMC_GetVECMAP());
+    ACK_DEBUG_PRINT_C("VECMAP = 0x%x -> 0x%08x\n", FMC_GetVECMAP(), ACK_NUMICRO_OTA_LOADER_PARTITION_START);
     while ((UART0->FIFOSTS & UART_FIFOSTS_TXEMPTY_Msk) == 0);
 
     FMC_SetVectorPageAddr(ACK_NUMICRO_OTA_LOADER_PARTITION_START);
@@ -274,9 +299,6 @@ void ACKPlatform_ApplyHostFirmwareUpdate(void)
     // Never get here.
     /* Lock protected registers */
     SYS_LockReg();
-
-    // Never get here.
-//      NVIC_SystemReset();
 }
 
 #endif // def ACK_HOST_FIRMWARE_UPDATE

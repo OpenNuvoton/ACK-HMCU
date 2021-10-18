@@ -1,5 +1,5 @@
 /**************************************************************************//**
- * @file     ack_m451_custom_loader.c
+ * @file     ack_numicro_custom_loader.c
  * @brief    ACK HMCU bootloader implementation.
  *
  * @note
@@ -8,7 +8,7 @@
  ******************************************************************************/
 
 #include "main.h"
-#include "ack_m451_ota.h"
+#include "ack_numicro_ota.h"
 #include <stdbool.h>
 #include <stdint.h>
 #include "numicro_hal.h"
@@ -26,10 +26,10 @@ void Loader(void)
     // Check status partition to see whether there's an unapplied OTA image.
     if (CheckStatusPartitionForUnappliedImage())
     {
-        printf("Will update.\n");
+        //printf("Will update.\n");
         if (ApplyOtaImage())
         {
-            printf("Updated image to PRIMARY partition from STAGING.\n");
+            printf("Updated to PRIMARY from STAGING.\n");
             EraseStatusPartitionToIndicateNoUnappliedImage();
         }
         else
@@ -142,7 +142,7 @@ void JumpToApplication(void)
 
     FMC_Open();
 
-    printf("VECMAP = 0x%x -> 0x%x\r\n", FMC_GetVECMAP(), ACK_NUMICRO_OTA_PRIMARY_PARTITION_START);
+    //printf("VECMAP = 0x%x -> 0x%x\r\n", FMC_GetVECMAP(), ACK_NUMICRO_OTA_PRIMARY_PARTITION_START);
 
     while ((UART0->FIFOSTS & UART_FIFOSTS_TXEMPTY_Msk) == 0);
 

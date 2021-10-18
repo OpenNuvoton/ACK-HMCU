@@ -1,6 +1,6 @@
 /*
  * Copyright 2018-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
- * 
+ *
  * You may not use this file except in compliance with the terms and conditions set forth in the
  * accompanying LICENSE.TXT file. THESE MATERIALS ARE PROVIDED ON AN "AS IS" BASIS. AMAZON SPECIFICALLY
  * DISCLAIMS, WITH RESPECT TO THESE MATERIALS, ALL WARRANTIES, EXPRESS, IMPLIED, OR STATUTORY, INCLUDING
@@ -33,9 +33,9 @@ const char Date[12] = __DATE__;
 static void GetCompileDate(uint8_t *Year, uint8_t *Month, uint8_t *Day)
 {
     uint8_t i;
-    for(i = 0; i < 12; i++)
+    for (i = 0; i < 12; i++)
     {
-        if( memcmp(Date, pMonth[i], 3) == 0 )
+        if (memcmp(Date, pMonth[i], 3) == 0)
         {
             *Month = i + 1;
             break;
@@ -49,17 +49,17 @@ static void GetCompileTime(uint8_t *Hour, uint8_t *Minute, uint8_t *Second)
 {
     const char Time[12] = __TIME__;
     uint32_t u32Hour, u32Minute, u32Second;
-    sscanf(Time, "%d:%d:%d", &u32Hour, &u32Minute, &u32Second );
-    *Hour		= u32Hour;
-    *Minute	= u32Minute;
-    *Second	= u32Second;
+    sscanf(Time, "%d:%d:%d", &u32Hour, &u32Minute, &u32Second);
+    *Hour       = u32Hour;
+    *Minute = u32Minute;
+    *Second = u32Second;
 }
 
-static void GetCompileDateTime(uint64_t* pu64DateTime)
+static void GetCompileDateTime(uint64_t *pu64DateTime)
 {
-    uint8_t* pu8DateTime = (uint8_t*) pu64DateTime;
-    GetCompileTime(pu8DateTime+2, pu8DateTime+1, pu8DateTime);
-    GetCompileDate(pu8DateTime+5, pu8DateTime+4, pu8DateTime+3);
+    uint8_t *pu8DateTime = (uint8_t *) pu64DateTime;
+    GetCompileTime(pu8DateTime + 2, pu8DateTime + 1, pu8DateTime);
+    GetCompileDate(pu8DateTime + 5, pu8DateTime + 4, pu8DateTime + 3);
 }
 
 // Returns the version of your firmware. This can be any 64-bit value meaningful for your firmware
@@ -68,9 +68,9 @@ uint64_t ACKUser_GetFirmwareVersion(void)
 {
     // Use a simple number for illustrative purposes. This can be any value that makes sense for your
     // firmware versioning scheme.
-    uint64_t u64BuildTime=1;
+    uint64_t u64BuildTime = 0;
     GetCompileDateTime(&u64BuildTime);
-    ACK_DEBUG_PRINT_C("%s %s 0x%" PRIx64 "", __DATE__, __TIME__, u64BuildTime );
+    ACK_DEBUG_PRINT_C("%s %s 0x%" PRIx64 "", __DATE__, __TIME__, u64BuildTime);
     return u64BuildTime;
 }
 
@@ -129,7 +129,7 @@ void ACKUser_EraseUserSettings(void)
 void ACKUser_OnLifecycleStateChange(void)
 {
 #if defined(ACK_DEBUG_PRINT_LEVEL) && (ACK_DEBUG_PRINT_LEVEL >= ACK_DEBUG_PRINT_LEVEL_INFO)
-    const char* pStateName = NULL;
+    const char *pStateName = NULL;
     bool anyActive = false;
 
     // Setup is handled specially because it has substates.

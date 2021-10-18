@@ -9,7 +9,7 @@
 #ifndef __ACK_NUMICRO_OTA_SHARED_H__
 #define __ACK_NUMICRO_OTA_SHARED_H__
 
-#include "ack_m4521_ota_config.h"
+#include "ack_numicro_ota_config.h"
 #include <stdbool.h>
 #include <stdint.h>
 #include "numicro_hal.h"

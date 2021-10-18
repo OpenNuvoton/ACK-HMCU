@@ -8,8 +8,8 @@ the Keil uVision development environment.
 
 | Folder Name | Description |
 |-|-|
-| m451_cube\                |  Nuvoton M451 series BSP |
-| ack_m451*.c, ack_m451*.h |  Shared ACK-specific C source code |
+| libraries\                |  Nuvoton M451 series BSP |
+| ack_numicro*.c, ack_numicro*.h |  Shared ACK-specific C source code |
 | nutiny-m451v\                 |  MCU-specific directories |
 | nutiny-m451v\ack.uvmpw        |  Multi-project workspace file for Keil uVision 5, contains all ACK Host MCU sample applications for the MCU |
 | nutiny-m451v\applications\\*\      | Projects for ACK Host MCU sample applications |

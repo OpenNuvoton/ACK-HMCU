@@ -8,8 +8,8 @@ the Keil uVision development environment.
 
 | Folder Name | Description |
 |-|-|
-| nuc1261_cube\                  |  Nuvoton NUC1261 series BSP |
-| ack_nuc1261*.c, ack_nuc1261*.h |  Shared ACK-specific C source code |
+| libraries\                  |  Nuvoton NUC1261 series BSP |
+| ack_numicro*.c, ack_numicro*.h |  Shared ACK-specific C source code |
 | nutiny-nuc1261s\                 |  MCU-specific directories |
 | nutiny-nuc1261s\ack.uvmpw        |  Multi-project workspace file for Keil uVision 5, contains all ACK Host MCU sample applications for the MCU |
 | nutiny-nuc1261s\applications\\*\      | Projects for ACK Host MCU sample applications |

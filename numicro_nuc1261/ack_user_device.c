@@ -68,8 +68,8 @@ uint64_t ACKUser_GetFirmwareVersion(void)
 {
     // Use a simple number for illustrative purposes. This can be any value that makes sense for your
     // firmware versioning scheme.
-    uint64_t u64BuildTime = 1;
-//    GetCompileDateTime(&u64BuildTime);
+    uint64_t u64BuildTime = 0;
+    GetCompileDateTime(&u64BuildTime);
     ACK_DEBUG_PRINT_C("%s %s 0x%" PRIx64 "", __DATE__, __TIME__, u64BuildTime);
     return u64BuildTime;
 }

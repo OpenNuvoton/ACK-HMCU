@@ -13,7 +13,7 @@
 #include "ack_user_platform.h"
 #include "main.h"
 #include "board.h"
-#include "ack_m4521_ota.h"
+#include "ack_numicro_ota.h"
 
 #define ACK_DEBUG_PRINT_UART    &g_asBoardUartDev[eUartDev_DBG]
 #define ACK_MODULE_UART         &g_asBoardUartDev[eUartDev_ACK]
@@ -41,6 +41,8 @@ void ACKPlatform_Initialize(void)
     sg_otaSize = ACK_NUMICRO_OTA_STAGING_PARTITION_SIZE;
     crc32 = ACKPlatform_CalculateCrc32((const void *)ACK_NUMICRO_OTA_STAGING_PARTITION_START, sg_otaSize);
     sg_otaCrc32 = crc32;
+
+    ACK_DEBUG_PRINT_C("calculated sg_otaCrc32=%08x\r\n", sg_otaCrc32);
 
     /* Calculate CRC32 checksum */
     if (ACKPlatform_HostFirmwareUpdateSuccessfullyRetrieved())
@@ -393,7 +395,9 @@ static void Button_DoRestoreFactorySetting(void)
 
 void HAL_SYS_TICK_InvokeCallback(void)
 {
+#if DEF_ENABLE_HMCU_INDICTOR_BLINK
     Led_Heartbeat();
+#endif
 #if DEF_ENABLE_RESTORE_FACTORY_SETTING
     Button_DoRestoreFactorySetting();
 #endif

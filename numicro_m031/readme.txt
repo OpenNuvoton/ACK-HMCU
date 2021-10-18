@@ -6,8 +6,8 @@ boards.
 The directory structure is as follows.
 
     user\platform\numicro_m031\                 this directory
-	m031_cube				Nuvoton M031 series BSP
-        ack_m031*.c, ack_m031*.h                Shared ACK-specific C source code
+	libraries				Nuvoton M031 series BSP
+        ack_numicro*.c, ack_numicro*.h                Shared ACK-specific C source code
         numaker-m03*se*\                        MCU-specific directories 
             ack.uvmpw                           multi-project workspace file for Keil uVision 5;
                                                 contains all ACK Host MCU sample applications for the MCU
