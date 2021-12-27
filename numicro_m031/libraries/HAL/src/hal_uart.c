@@ -208,6 +208,12 @@ static void hal_uart_rxbuf_irq(struct nu_uart_var *psNuUartVar, uint32_t u32INTS
 static void uart_irq(struct nu_uart_var *psNuUartVar)
 {
     S_UARTDev *psUartDev = psNuUartVar->dev;
+
+    if (!psNuUartVar || (psNuUartVar->dev == NULL))
+    {
+        return;
+    }
+
     volatile UART_T *uart_base = (UART_T *) NU_MODBASE(psUartDev->uart);
     volatile uint32_t u32INTSTS = uart_base->INTSTS;
     volatile uint32_t u32FIFOSTS = uart_base->FIFOSTS;
